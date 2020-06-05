@@ -11,16 +11,16 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"articleBody":"Intro컴공선배 라이징 프로젝트 시작 서버 1주차\nApache compile install\nVim install, setting\n우분투를 사용할 때 vi 편집기를 사용할 때 vim설치를 해주지 않고 사용하면 매우매우 불편하다. 먼저 설치를 하고 시작하자.\n\napt 업데이트 이후 설치 \n\n\n‘’’bash$ sudo apt-get update$ sudo apt-get upgrade$ sudo apt-get install vim‘’’\n\nvim 설치가 끝이 아니라 설정까지 해줘야 vim사용이 가능하다.\n\nvim설정 파일 진입\n\n\n‘’’bash$ vi ~/.vimrc‘’’\n‘’’bashset number                          “ line 표시set ai                              “ auto indentset si                              “ smart indentset cindent                         “ c style indentset shiftwidth=4                    “ 자동 공백 채움 시 4칸set tabstop=4                       “ tab을 4칸 공백으로set ignorecase                      “ 검색 시 대소문자 무시set hlsearch                        “ 검색 시 하이라이트set nocompatible                    “ 방향키로 이동 가능set fencs=ucs-bom,utf-8,euc-kr      “ 한글 파일은 euc-kr, 유니코드는 유니코드set bs=indent,eol,start             “ backspace 사용가능set ruler                           “ 상태 표시줄에 커서 위치 표시set title                           “ 제목 표시set showmatch                       “ 다른 코딩 프로그램처럼 매칭되는 괄호 보여줌set wmnu                            “ tab 을 눌렀을 때 자동완성 가능한 목록syntax on                           “ 문법 하이라이트 onfiletype indent on                  “ 파일 종류에 따른 구문 강조set mouse=a                         “ 커서 이동을 마우스로 가능하도록‘’’\n","dateCreated":"2020-06-02T13:05:15+09:00","dateModified":"2020-06-05T14:24:29+09:00","datePublished":"2020-06-02T13:05:15+09:00","description":"","headline":"server_week_1-2 (Apache Compile install)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/02/week1-2/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"url":"http://yoursite.com/2020/06/02/week1-2/","keywords":"Today what I Learn"}</script>
-    <meta name="description" content="Intro컴공선배 라이징 프로젝트 시작 서버 1주차 Apache compile install Vim install, setting 우분투를 사용할 때 vi 편집기를 사용할 때 vim설치를 해주지 않고 사용하면 매우매우 불편하다. 먼저 설치를 하고 시작하자.  apt 업데이트 이후 설치    ‘’’bash$ sudo apt-get update$ sudo ap">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"articleBody":"Intro컴공선배 라이징 프로젝트 시작 서버 1주차\nApache compile install\nVim install, setting\n우분투를 사용할 때 vi 편집기를 사용할 때 vim설치를 해주지 않고 사용하면 매우매우 불편하다. 먼저 설치를 하고 시작하자.\n\napt 업데이트 이후 설치 \n\n\n123$ sudo apt-get update$ sudo apt-get upgrade$ sudo apt-get install vim\n\n\nvim 설치가 끝이 아니라 설정까지 해줘야 vim사용이 가능하다.\n\nvim설정 파일 진입\n\n\n1$ vi ~/.vimrc\n\n123456789101112131415161718set number                          \" line 표시set ai                              \" auto indentset si                              \" smart indentset cindent                         \" c style indentset shiftwidth=4                    \" 자동 공백 채움 시 4칸set tabstop=4                       \" tab을 4칸 공백으로set ignorecase                      \" 검색 시 대소문자 무시set hlsearch                        \" 검색 시 하이라이트set nocompatible                    \" 방향키로 이동 가능set fencs=ucs-bom,utf-8,euc-kr      \" 한글 파일은 euc-kr, 유니코드는 유니코드set bs=indent,eol,start             \" backspace 사용가능set ruler                           \" 상태 표시줄에 커서 위치 표시set title                           \" 제목 표시set showmatch                       \" 다른 코딩 프로그램처럼 매칭되는 괄호 보여줌set wmnu                            \" tab 을 눌렀을 때 자동완성 가능한 목록syntax on                           \" 문법 하이라이트 onfiletype indent on                  \" 파일 종류에 따른 구문 강조set mouse=a                         \" 커서 이동을 마우스로 가능하도록\n\n\nApache 2.4.43 compile install\n본격적으로 apache 수동 설치시작한.\n\n/usr/local/ 경로에 설치하는 것이 바람직\n\n/usr/local/src 소스파일 저장\n\n설치 하는 순서는 보통 wget-&gt; xvfz tar -&gt; ./configure -&gt; make -&gt; make install\n\n소스컴파일에 apr, apr-util, pcre 와 같은 의존성 패키지는 apt로 설치 \n\napr : 아파치 HTTP 서버 2.x.의 핵심이며 휴대용 라이브러리, 이런 APR은 고급 IO 기능에 대한 접근을 포함하여 OS 수준의 기능, 기본프로세스 처리 등 많은 용도로 사용된다.\n\nPCRE : 펄 호환 정규 표현식으로 정규식 패턴 일치를 구현하는 함수의 집합 아파치 2.4버전 설치시 필요한 패키지\n\n\n\n소스를 저장할 디렉토리 생성 \n\n123$ cd usr$ cd local$ sudo mkdir apache\n\n\n다음 명령어를 수행하는데 어려움이 있다면 리눅스의 디렉토리 구조를 한번 보고 오는게 좋다. https://webdir.tistory.com/101\n\n\napr,apr-util 다운\n\n1234$ wget http://mirror.navercorp.com/apache//apr/apr-1.7.0.tar.gz$ wget http://mirror.navercorp.com/apache//apr/apr-util-1.6.1.tar.gz$ tar xvfz apr-1.7.0.tar.gz$ tar xvfz apr-util-1.6.1.tar.gz\n\nwget : web get 의 약어로 웹상의 파일을 다운받을 때 사용\n\ntar xvfz : tar.gz 형식으로 압축되어있는 파일을 압축 해제하는 명령어\n\n\n\napr 설치\n1234$ cd usr/local/apr-1.7.0$ ./configure --prefix=/usr/local/apr$ make$ make install\n\napr-util 설치 \n\n\n\n여기서 많이 삽질했는데 apr-util 설치전 필수적으로 libexpat1-dev 라는 패키지를 먼저 설치 해줘야 한다. 이 패키지가 설치되지 않은 상태로 설치되면 제대로 설치가 되지 않아 나중에 apache 설치시 오류가 나서 재설치하는 번거러움이 생긴다.\n\n1$ sudo apt-get install libexpat1-dev\n\n\n다음으로 apr-uilt 설치\n\n1234$ cd usr/local/apr-util-1.6.1$ ./configure --with-apr=/usr/local/apr --prefix=/usr/local/apr-util $ make$ make install\n\n\nPCRE 설치\n1234567$ cd usr/local$ wget ftp://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz$ tar xvfz pcre-8.43.gar.gz$ cd usr/local/pcre-8.43$ ./configure --prefix=/usr/local/pcre$ make$ make install\n\napache 2.4.43 설치\n\n\n\napache 공식 사이트 소스 설치 : http://httpd.apache.org/docs/current/install.html\n\napache 최신 버젼 링크 : http://httpd.apache.org/download.cgi \n\n다운로드시 최신 버젼을 확인하여 설치한다.\n123$ cd /usr/local$ wget http://apache.tt.co.kr//httpd/httpd-2.4.43.tar.gz$ tar xvfz httpd-2.4.43.tar.gz\n\n다운로드후 configure, make, make install 순서로 설치\n123456789$ cd httpd-2.4.43$ ./configure --prefix=/usr/local/apache2.4 \\--enable-module=so --enable-rewrite --enable-so \\--with-apr=/usr/local/apr \\--with-apr-util=/usr/local/apr-util \\--with-pcre=/usr/local/pcre \\--enable-mods-shared=all$ make$ make install\nconfigure 스크립트를 사용해 아파치 소스트리 구성, 자세한 script 구성은 http://httpd.apache.org/docs/current/en/programs/configure.html\n\n설치가 완료 되었으면 실행을 해본다.\n1234$ sudo /usr/local/apache2.4/bin/apachectl -k start$ ps -ef|grep httpd|grep -v grep$ sudo netstat -anp|grep httpd$ sudo curl http://127.0.01\n\n다음과 같은 오류가 발생하였는데 일단 동작은 하지만 찾아봐야할거 같다.. AH00558: httpd: Could not reliably determine the server’s fully qualified domain name, using 127.0.1.1. Set the ‘ServerName’ directive globally to suppress this message\n\nnetstat와 curl 이 동작하지 않는다면 설치\n12$ apt-get install net-tools$ apt-get install curl\n\n\n\nhttpd 서비스 등록 12$ cp /usr/local/apache2.4/bin/apachectl /etc/init.d/httpd $ update-rc.d httpd defaults\n\n","dateCreated":"2020-06-02T13:05:15+09:00","dateModified":"2020-06-05T15:03:26+09:00","datePublished":"2020-06-02T13:05:15+09:00","description":"","headline":"server_week_1-2 (Apache Compile install)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/02/week1-2/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"url":"http://yoursite.com/2020/06/02/week1-2/","keywords":"Today what I Learn"}</script>
+    <meta name="description" content="Intro컴공선배 라이징 프로젝트 시작 서버 1주차 Apache compile install Vim install, setting 우분투를 사용할 때 vi 편집기를 사용할 때 vim설치를 해주지 않고 사용하면 매우매우 불편하다. 먼저 설치를 하고 시작하자.  apt 업데이트 이후 설치    123$ sudo apt-get update$ sudo apt-ge">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="server_week_1-2 (Apache Compile install)">
 <meta property="og:url" content="http://yoursite.com/2020/06/02/week1-2/index.html">
 <meta property="og:site_name" content="Coming soon!">
-<meta property="og:description" content="Intro컴공선배 라이징 프로젝트 시작 서버 1주차 Apache compile install Vim install, setting 우분투를 사용할 때 vi 편집기를 사용할 때 vim설치를 해주지 않고 사용하면 매우매우 불편하다. 먼저 설치를 하고 시작하자.  apt 업데이트 이후 설치    ‘’’bash$ sudo apt-get update$ sudo ap">
+<meta property="og:description" content="Intro컴공선배 라이징 프로젝트 시작 서버 1주차 Apache compile install Vim install, setting 우분투를 사용할 때 vi 편집기를 사용할 때 vim설치를 해주지 않고 사용하면 매우매우 불편하다. 먼저 설치를 하고 시작하자.  apt 업데이트 이후 설치    123$ sudo apt-get update$ sudo apt-ge">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-02T04:05:15.000Z">
-<meta property="article:modified_time" content="2020-06-05T05:24:29.674Z">
+<meta property="article:modified_time" content="2020-06-05T06:03:26.663Z">
 <meta property="article:author" content="Hyeongsun Kim">
 <meta property="article:tag" content="Today what I Learn">
 <meta name="twitter:card" content="summary">
@@ -240,15 +240,101 @@
 <li><p>apt 업데이트 이후 설치 </p>
 </li>
 </ul>
-<p>‘’’bash<br>$ sudo apt-get update<br>$ sudo apt-get upgrade<br>$ sudo apt-get install vim<br>‘’’</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br><span class="line">$ sudo apt-get install vim</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>vim 설치가 끝이 아니라 설정까지 해줘야 vim사용이 가능하다.</p>
 </li>
 <li><p>vim설정 파일 진입</p>
 </li>
 </ul>
-<p>‘’’bash<br>$ vi ~/.vimrc<br>‘’’</p>
-<p>‘’’bash<br>set number                          “ line 표시<br>set ai                              “ auto indent<br>set si                              “ smart indent<br>set cindent                         “ c style indent<br>set shiftwidth=4                    “ 자동 공백 채움 시 4칸<br>set tabstop=4                       “ tab을 4칸 공백으로<br>set ignorecase                      “ 검색 시 대소문자 무시<br>set hlsearch                        “ 검색 시 하이라이트<br>set nocompatible                    “ 방향키로 이동 가능<br>set fencs=ucs-bom,utf-8,euc-kr      “ 한글 파일은 euc-kr, 유니코드는 유니코드<br>set bs=indent,eol,start             “ backspace 사용가능<br>set ruler                           “ 상태 표시줄에 커서 위치 표시<br>set title                           “ 제목 표시<br>set showmatch                       “ 다른 코딩 프로그램처럼 매칭되는 괄호 보여줌<br>set wmnu                            “ tab 을 눌렀을 때 자동완성 가능한 목록<br>syntax on                           “ 문법 하이라이트 on<br>filetype indent on                  “ 파일 종류에 따른 구문 강조<br>set mouse=a                         “ 커서 이동을 마우스로 가능하도록<br>‘’’</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.vimrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> number                          <span class="string">" line 표시</span></span><br><span class="line"><span class="string">set ai                              "</span> auto indent</span><br><span class="line"><span class="built_in">set</span> si                              <span class="string">" smart indent</span></span><br><span class="line"><span class="string">set cindent                         "</span> c style indent</span><br><span class="line"><span class="built_in">set</span> shiftwidth=4                    <span class="string">" 자동 공백 채움 시 4칸</span></span><br><span class="line"><span class="string">set tabstop=4                       "</span> tab을 4칸 공백으로</span><br><span class="line"><span class="built_in">set</span> ignorecase                      <span class="string">" 검색 시 대소문자 무시</span></span><br><span class="line"><span class="string">set hlsearch                        "</span> 검색 시 하이라이트</span><br><span class="line"><span class="built_in">set</span> nocompatible                    <span class="string">" 방향키로 이동 가능</span></span><br><span class="line"><span class="string">set fencs=ucs-bom,utf-8,euc-kr      "</span> 한글 파일은 euc-kr, 유니코드는 유니코드</span><br><span class="line"><span class="built_in">set</span> bs=indent,eol,start             <span class="string">" backspace 사용가능</span></span><br><span class="line"><span class="string">set ruler                           "</span> 상태 표시줄에 커서 위치 표시</span><br><span class="line"><span class="built_in">set</span> title                           <span class="string">" 제목 표시</span></span><br><span class="line"><span class="string">set showmatch                       "</span> 다른 코딩 프로그램처럼 매칭되는 괄호 보여줌</span><br><span class="line"><span class="built_in">set</span> wmnu                            <span class="string">" tab 을 눌렀을 때 자동완성 가능한 목록</span></span><br><span class="line"><span class="string">syntax on                           "</span> 문법 하이라이트 on</span><br><span class="line">filetype indent on                  <span class="string">" 파일 종류에 따른 구문 강조</span></span><br><span class="line"><span class="string">set mouse=a                         "</span> 커서 이동을 마우스로 가능하도록</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Apache-2-4-43-compile-install"><a href="#Apache-2-4-43-compile-install" class="headerlink" title="Apache 2.4.43 compile install"></a>Apache 2.4.43 compile install</h2><ul>
+<li><p>본격적으로 apache 수동 설치시작한.</p>
+</li>
+<li><p>/usr/local/ 경로에 설치하는 것이 바람직</p>
+</li>
+<li><p>/usr/local/src 소스파일 저장</p>
+</li>
+<li><p>설치 하는 순서는 보통 wget-&gt; xvfz tar -&gt; ./configure -&gt; make -&gt; make install</p>
+</li>
+<li><p>소스컴파일에 apr, apr-util, pcre 와 같은 의존성 패키지는 apt로 설치 </p>
+</li>
+<li><p><strong>apr</strong> : 아파치 HTTP 서버 2.x.의 핵심이며 휴대용 라이브러리, 이런 APR은 고급 IO 기능에 대한 접근을 포함하여 OS 수준의 기능, 기본프로세스 처리 등 많은 용도로 사용된다.</p>
+</li>
+<li><p><strong>PCRE</strong> : 펄 호환 정규 표현식으로 정규식 패턴 일치를 구현하는 함수의 집합 아파치 2.4버전 설치시 필요한 패키지</p>
+</li>
+</ul>
+<ol>
+<li>소스를 저장할 디렉토리 생성 </li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> usr</span><br><span class="line">$ <span class="built_in">cd</span> <span class="built_in">local</span></span><br><span class="line">$ sudo mkdir apache</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>다음 명령어를 수행하는데 어려움이 있다면 리눅스의 디렉토리 구조를 한번 보고 오는게 좋다. <a href="https://webdir.tistory.com/101" target="_blank" rel="noopener">https://webdir.tistory.com/101</a></li>
+</ul>
+<ol start="2">
+<li>apr,apr-util 다운</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://mirror.navercorp.com/apache//apr/apr-1.7.0.tar.gz</span><br><span class="line">$ wget http://mirror.navercorp.com/apache//apr/apr-util-1.6.1.tar.gz</span><br><span class="line">$ tar xvfz apr-1.7.0.tar.gz</span><br><span class="line">$ tar xvfz apr-util-1.6.1.tar.gz</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>wget</strong> : web get 의 약어로 웹상의 파일을 다운받을 때 사용</p>
+</li>
+<li><p><strong>tar xvfz</strong> : tar.gz 형식으로 압축되어있는 파일을 압축 해제하는 명령어</p>
+</li>
+</ul>
+<ol start="3">
+<li><p>apr 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> usr/<span class="built_in">local</span>/apr-1.7.0</span><br><span class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apr</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>apr-util 설치 </p>
+</li>
+</ol>
+<ul>
+<li>여기서 많이 삽질했는데 apr-util 설치전 필수적으로 libexpat1-dev 라는 패키지를 먼저 설치 해줘야 한다. 이 패키지가 설치되지 않은 상태로 설치되면 제대로 설치가 되지 않아 나중에 apache 설치시 오류가 나서 재설치하는 번거러움이 생긴다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install libexpat1-dev</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>다음으로 apr-uilt 설치</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> usr/<span class="built_in">local</span>/apr-util-1.6.1</span><br><span class="line">$ ./configure --with-apr=/usr/<span class="built_in">local</span>/apr --prefix=/usr/<span class="built_in">local</span>/apr-util </span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p>PCRE 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> usr/<span class="built_in">local</span></span><br><span class="line">$ wget ftp://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz</span><br><span class="line">$ tar xvfz pcre-8.43.gar.gz</span><br><span class="line">$ <span class="built_in">cd</span> usr/<span class="built_in">local</span>/pcre-8.43</span><br><span class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/pcre</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>apache 2.4.43 설치</p>
+</li>
+</ol>
+<ul>
+<li><p>apache 공식 사이트 소스 설치 : <a href="http://httpd.apache.org/docs/current/install.html" target="_blank" rel="noopener">http://httpd.apache.org/docs/current/install.html</a></p>
+</li>
+<li><p>apache 최신 버젼 링크 : <a href="http://httpd.apache.org/download.cgi" target="_blank" rel="noopener">http://httpd.apache.org/download.cgi</a> </p>
+</li>
+<li><p>다운로드시 최신 버젼을 확인하여 설치한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">$ wget http://apache.tt.co.kr//httpd/httpd-2.4.43.tar.gz</span><br><span class="line">$ tar xvfz httpd-2.4.43.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>다운로드후 configure, make, make install 순서로 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> httpd-2.4.43</span><br><span class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apache2.4 \</span><br><span class="line">--<span class="built_in">enable</span>-module=so --<span class="built_in">enable</span>-rewrite --<span class="built_in">enable</span>-so \</span><br><span class="line">--with-apr=/usr/<span class="built_in">local</span>/apr \</span><br><span class="line">--with-apr-util=/usr/<span class="built_in">local</span>/apr-util \</span><br><span class="line">--with-pcre=/usr/<span class="built_in">local</span>/pcre \</span><br><span class="line">--<span class="built_in">enable</span>-mods-shared=all</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure></li>
+<li><p>configure 스크립트를 사용해 아파치 소스트리 구성, 자세한 script 구성은 <a href="http://httpd.apache.org/docs/current/en/programs/configure.html" target="_blank" rel="noopener">http://httpd.apache.org/docs/current/en/programs/configure.html</a></p>
+</li>
+<li><p>설치가 완료 되었으면 실행을 해본다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /usr/<span class="built_in">local</span>/apache2.4/bin/apachectl -k start</span><br><span class="line">$ ps -ef|grep httpd|grep -v grep</span><br><span class="line">$ sudo netstat -anp|grep httpd</span><br><span class="line">$ sudo curl http://127.0.01</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>다음과 같은 오류가 발생하였는데 일단 동작은 하지만 찾아봐야할거 같다.. AH00558: httpd: Could not reliably determine the server’s fully qualified domain name, using 127.0.1.1. Set the ‘ServerName’ directive globally to suppress this message</p>
+</li>
+<li><p>netstat와 curl 이 동작하지 않는다면 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install net-tools</span><br><span class="line">$ apt-get install curl</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="7">
+<li>httpd 서비스 등록 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cp /usr/<span class="built_in">local</span>/apache2.4/bin/apachectl /etc/init.d/httpd </span><br><span class="line">$ update-rc.d httpd defaults</span><br></pre></td></tr></table></figure></li>
+</ol>
 
             
 
