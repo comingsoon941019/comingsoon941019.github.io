@@ -205,6 +205,279 @@
                     
                         <a
                             class="link-unstyled"
+                            href="/2020/06/09/week2-3/"
+                            aria-label=": server_week_2-3 (aws, 도메인, https)"
+                        >
+                            server_week_2-3 (aws, 도메인, https)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-06-09T18:35:10+09:00">
+	
+		    Jun 09, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/raising-project/">raising project</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>서버 2주차</p>
+<p>aws EC2 도메인 적용</p>
+<p>https 보안 인증</p>
+<ol>
+<li>로컬 윈도우 컴퓨터에 비트나미로 서버 구축, → 폰 와이파이 풀고  Phpinfo 외부접속 캡쳐<br>이후 과제는 모두 aws 컴퓨터에 시행, aws ec2 임대, nginx, php, mysql 패키지 관리자로 설치</li>
+</ol>
+<ol start="5">
+<li>도메인 적용</li>
+<li>https 적용 (let’s encrypt)</li>
+<li>웹템플릿 적용해서 나만의 웹사이트 만들어오기 → HTML, CSS, JS 활용</li>
+</ol>
+<h2 id="aws-EC2-도메인-적용"><a href="#aws-EC2-도메인-적용" class="headerlink" title="aws EC2 도메인 적용"></a>aws EC2 도메인 적용</h2>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/06/09/week2-3/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/06/09/week2-2/"
+                            aria-label=": server_week_2-2 (aws, datagrid)"
+                        >
+                            server_week_2-2 (aws, datagrid)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-06-09T17:39:40+09:00">
+	
+		    Jun 09, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/raising-project/">raising project</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>서버 2주차</p>
+<p>cyberduck 사용법</p>
+<p>jet brain datagrid 사용</p>
+<h2 id="MySQL-외부-접속"><a href="#MySQL-외부-접속" class="headerlink" title="MySQL 외부 접속"></a>MySQL 외부 접속</h2><ol>
+<li>aws EC2로 인스턴스한 우분투에 APM 설치 </li>
+</ol>
+<ul>
+<li><p>Vim 설치</p>
+</li>
+<li><p>APM 설치 <a href="https://webnautes.tistory.com/1185" target="_blank" rel="noopener">https://webnautes.tistory.com/1185</a> </p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install apache2</span><br><span class="line">$ sudo apt-get install mysql-server</span><br><span class="line">$ sudo apt-get install php php-mysql</span><br><span class="line">$ sudo apt-get install phpmyadmin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>MySQL 설치 시에는 root 계정으로 외부접속하는거는 보안상 좋지 않으므로 새로운 계정을 생성</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root -p</span><br><span class="line">mysql&gt; create database db DEFAULT CHARACTER SET utf8;</span><br><span class="line">mysql&gt; CREATE user <span class="string">'사용자이름'</span> identified by <span class="string">'패스워드'</span>;</span><br><span class="line">mysql&gt; GRANT all privileges on *.* to <span class="string">'사용자'</span>@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>기본적으로 apache2의 디폴트 doc루트는 /var/www/html 이다.</li>
+</ul>
+<ol start="2">
+<li>JetBrain DataGrid<br><img src="/img/post2-2_DG.png" alt="windows-telnet-1"></li>
+</ol>
+<ul>
+<li><p>jet brain 사의 DB를 외부접속하기위한 여러 툴중에 하나 이다. </p>
+</li>
+<li><p>한달 동안 무료로 사용가능하며 대학생일 경우 대학교 이메일을 인증하면 1년간 Professional linecese를 이용 할 수 있다.</p>
+</li>
+<li><p>아래 DB source 설정에서 mysql user와 비밀번호 EC2 인스턴스의 아이피를 적어 주어 연결한다.<br><img src="/img/post2-2_DG_CONF.png" alt="windows-telnet-1"></p>
+</li>
+</ul>
+<h2 id="Cyber-duck"><a href="#Cyber-duck" class="headerlink" title="Cyber duck"></a>Cyber duck</h2><p><img src="/img/post2-2_CD.png" alt="windows-telnet-1"></p>
+<ol>
+<li><p>Cyber duck은  mac에서 주로 사용하는 ssh를 통해 파일을 전송할 수 이쓴 프로토콜인 SFTP을 지원하는 파일 브라우저이다.</p>
+</li>
+<li><p>연결 </p>
+</li>
+</ol>
+<ul>
+<li><p>연결할 인스턴스 선택 후 DNS의 주소를 복사<br><img src="/img/post2-2_CD_1.png" alt="windows-telnet-1"></p>
+</li>
+<li><p>추가 이름과 PK 입력<br><img src="/img/post2-2_CD_2.png" alt="windows-telnet-1"></p>
+</li>
+<li><p>연결이 완료되면 다음과 같이 GUI 환경에서 파일을 다룰 수 있다.<br><img src="/img/post2-2_CD_3.png" alt="windows-telnet-1"></p>
+</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/06/09/week2-2/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/06/08/week2-1/"
+                            aria-label=": server_week_2-1 (aws begin)"
+                        >
+                            server_week_2-1 (aws begin)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-06-08T14:09:48+09:00">
+	
+		    Jun 08, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/raising-project/">raising project</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>서버 2주차</p>
+<p>aws EC2 인스턴스</p>
+<h2 id="Amazon-Web-Service-amp-Cloud"><a href="#Amazon-Web-Service-amp-Cloud" class="headerlink" title="Amazon Web Service &amp; Cloud"></a>Amazon Web Service &amp; Cloud</h2><ul>
+<li><p>AWS 공홈에 사용을 위한 자습서를 제공한다 : <a href="https://aws.amazon.com/ko/getting-started/hands-on/?awsf.getting-started-content-type=content-type%23hands-on&amp;?e=gs2020&amp;p=gsrc" target="_blank" rel="noopener">https://aws.amazon.com/ko/getting-started/hands-on/?awsf.getting-started-content-type=content-type%23hands-on&amp;?e=gs2020&amp;p=gsrc</a></p>
+</li>
+<li><p>인프런의 생활코딩에서도 인강을 참고할 수 있다.</p>
+</li>
+</ul>
+<ol>
+<li>AWS 요금</li>
+</ol>
+<ul>
+<li><p>요금 명세 : <a href="https://aws.amazon.com/ko/pricing/?nc2=h_ql_pr_ln" target="_blank" rel="noopener">https://aws.amazon.com/ko/pricing/?nc2=h_ql_pr_ln</a></p>
+<ul>
+<li>요금을 내는 방식이 총 4가지(온디맨드, 스팻인스턴스, 예약인스턴스, 전용호스팅)</li>
+</ul>
+</li>
+<li><p>프리티어 확인후 사용이 필요</p>
+</li>
+</ul>
+<ol start="2">
+<li>EC2 사용</li>
+</ol>
+<ul>
+<li><p>AWS 서비스 콘솔에서 사용</p>
+</li>
+<li><p>컴퓨터 한대를 사용할 때 인스턴스 하나를 시작한다고한다.</p>
+</li>
+<li><p>인스턴스 시작 버튼을 클릭하면 프리티어로 인스턴스 가능한 목록을 확인 가능하다.</p>
+</li>
+<li><p>ubuntu 18.04 LTS 프리티어를 인스턴스 하고 시작</p>
+</li>
+<li><p>키패어 생성 화면을 확인 할 수 있다. 새 키페어를 생성한후 키페어 이름설정 키페어 다운로드 하여 키를 관리한다. 유출, 누실을 주의하자.</p>
+</li>
+<li><p>pending을 거쳐 인스턴스 상태가 running이 되면 이제 원격으로 컴퓨터를 사용할 준비가 끝났다.</p>
+</li>
+<li><p>EC2를 사용하기 위해 mac을 쓰고있는 나는 Cyberduck을 설치</p>
+</li>
+<li><p>sftp 모드를 설정한 뒤 퍼블릭 DNS를 주소로 인스턴스와 연결한다.</p>
+</li>
+<li><p>ssh -i <del>.pem ubuntu@</del>.compute.amazonaws.com 다음과같이 사용된 DNS 에서 명령어를 사용하면 인스턴스한 우분투의 터미널로 접속이 가능하다.</p>
+</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/06/08/week2-1/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
                             href="/2020/06/04/week1-4/"
                             aria-label=": server_week_1-4 (php install)"
                         >
