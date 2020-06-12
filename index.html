@@ -11,7 +11,7 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Website","@id":"http://yoursite.com","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"name":"Coming soon!","description":null,"url":"http://yoursite.com"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Website","@id":"http://yoursite.com","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"name":"Coming soon!","description":null,"url":"http://yoursite.com"}</script>
     <meta property="og:type" content="blog">
 <meta property="og:title" content="Coming soon!">
 <meta property="og:url" content="http://yoursite.com/index.html">
@@ -23,6 +23,8 @@
     
         
     
+    
+        <meta property="og:image" content="http://yoursite.com/assets/images/comingsoon_pic.png"/>
     
     
     
@@ -45,6 +47,10 @@
 
 
     
+        
+            
+        
+    
 
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
@@ -66,6 +72,8 @@
             >
         
         
+            <img class="header-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
         </a>
     
 </header>
@@ -73,8 +81,26 @@
             <!-- Define author's picture -->
 
 
+
+        
+    
+
 <nav id="sidebar" data-behavior="1">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Hyeongsun Kim</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -124,20 +150,6 @@
                 <li class="sidebar-button">
                     
                         <a
-                            class="sidebar-button-link open-algolia-search"
-                            href="#search"
-                            
-                            rel="noopener"
-                            title="Search"
-                        >
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
                             class="sidebar-button-link "
                             href="#about"
                             
@@ -169,20 +181,6 @@
                     </a>
             </li>
             
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="/mailto"
-                            
-                            rel="noopener"
-                            title="Mail"
-                        >
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
-                    </a>
-            </li>
-            
         </ul>
         
     </div>
@@ -204,7 +202,7 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/06/09/week2-3/"
+                            href="/2020/06/10/week2-3/"
                             aria-label=": server_week_2-3 (aws, 도메인, https)"
                         >
                             server_week_2-3 (aws, 도메인, https)
@@ -212,9 +210,9 @@
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-06-09T18:35:10+09:00">
+    <time datetime="2020-06-10T18:35:10+09:00">
 	
-		    Jun 09, 2020
+		    Jun 10, 2020
     	
     </time>
     
@@ -273,7 +271,7 @@
                     
                         <p>
                             <a
-                                href="/2020/06/09/week2-3/#post-footer"
+                                href="/2020/06/10/week2-3/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -284,6 +282,16 @@
                 </div>
             
         </div>
+        
+            <a
+                href="/2020/06/10/week2-3/"
+                aria-label=": server_week_2-3 (aws, 도메인, https)"
+            >
+                <div class="postShorten-thumbnailimg">
+                    <img alt="" src="http://yoursite.com/2020/06/10/week2-3/Comingsoon_log.png"/>
+                </div>
+            </a>
+            
         
     </article>
     
@@ -1090,22 +1098,28 @@
         
 
 
+    
+        
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-times"></i>
         </div>
         
+            <img id="about-card-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
             <h4 id="about-card-name">Hyeongsun Kim</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Server Developer Junior</p>
 
             </div>
         
@@ -1115,7 +1129,7 @@
 
         
         
-<div id="cover" style="background-image:url('/assets/images/Comingsoon_log.jpg');"></div>
+<div id="cover" style="background-image:url('/assets/images/Comingsoon_log2.jpg');"></div>
         <!--SCRIPTS-->
 
 <script src="/assets/js/script-txlalwmtrrtfvyqmxjcncnynauyiuytyxdxbkaoife4sm68spo51stb2r0vn.min.js"></script>

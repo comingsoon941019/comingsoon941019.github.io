@@ -11,7 +11,7 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"articleBody":"Intro컴공선배 라이징 프로젝트 시작 서버 1주차\nMySQL root passwd missing\nMySQL root 비밀번호 분실\n설정중 mysql root 비밀번호를 분실하여 고생했던 경험을 기술한다..\n\n\nmysql 사용 중지 및 패스워드 없이 진입\n\n12$ Sudo service mysql stop$ Sudo mysqld_safe --skip-grant-tables --skip-networking\n이때 중요한거는 명령어 실행중 다른 터미널 창을 켜서 mysql에 진입하여야 패스워드 입력 없이 진입한다.\n\n진입 후 패스워드 삭제\n1234$ mysql -u rootmysql&gt; UPDATE mysql.user SET authentication_string =null WHERE user=‘root’; # 패스워드 삭제 mysql&gt; Flush privileges; # 저장은 필수다 잊지말자\n\n비밀번호 재설정 \n12mysql&gt; UPDATE mysql.user SET authentication_string =PASSWORD('password') WHERE User='root'; mysql&gt; Flush privileges; # 저장은 필수다 잊지말자\n이후 서버를 재시작 해주면 된다. 관한 문제로 굉장히 긴시간을 허비 했고 허탈했다..\n\n\n","dateCreated":"2020-06-03T20:13:23+09:00","dateModified":"2020-06-05T16:03:06+09:00","datePublished":"2020-06-03T20:13:23+09:00","description":"","headline":"server_week_1-3-1 (MySQL root passwd 분실)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/03/week1-3-1/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"url":"http://yoursite.com/2020/06/03/week1-3-1/","keywords":"Today what I Learn"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro컴공선배 라이징 프로젝트 시작 서버 1주차\nMySQL root passwd missing\nMySQL root 비밀번호 분실\n설정중 mysql root 비밀번호를 분실하여 고생했던 경험을 기술한다..\n\n\nmysql 사용 중지 및 패스워드 없이 진입\n\n12$ Sudo service mysql stop$ Sudo mysqld_safe --skip-grant-tables --skip-networking\n이때 중요한거는 명령어 실행중 다른 터미널 창을 켜서 mysql에 진입하여야 패스워드 입력 없이 진입한다.\n\n진입 후 패스워드 삭제\n1234$ mysql -u rootmysql&gt; UPDATE mysql.user SET authentication_string =null WHERE user=‘root’; # 패스워드 삭제 mysql&gt; Flush privileges; # 저장은 필수다 잊지말자\n\n비밀번호 재설정 \n12mysql&gt; UPDATE mysql.user SET authentication_string =PASSWORD('password') WHERE User='root'; mysql&gt; Flush privileges; # 저장은 필수다 잊지말자\n이후 서버를 재시작 해주면 된다. 관한 문제로 굉장히 긴시간을 허비 했고 허탈했다..\n\n\n","dateCreated":"2020-06-03T20:13:23+09:00","dateModified":"2020-06-05T16:03:06+09:00","datePublished":"2020-06-03T20:13:23+09:00","description":"","headline":"server_week_1-3-1 (MySQL root passwd 분실)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/03/week1-3-1/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/03/week1-3-1/","keywords":"Today what I Learn"}</script>
     <meta name="description" content="Intro컴공선배 라이징 프로젝트 시작 서버 1주차 MySQL root passwd missing MySQL root 비밀번호 분실 설정중 mysql root 비밀번호를 분실하여 고생했던 경험을 기술한다..   mysql 사용 중지 및 패스워드 없이 진입  12$ Sudo service mysql stop$ Sudo mysqld_safe --skip-gra">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="server_week_1-3-1 (MySQL root passwd 분실)">
@@ -28,6 +28,8 @@
     
         
     
+    
+        <meta property="og:image" content="http://yoursite.com/assets/images/comingsoon_pic.png"/>
     
     
     
@@ -52,6 +54,10 @@
 
 
     
+        
+            
+        
+    
 
 <header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
@@ -73,6 +79,8 @@
             >
         
         
+            <img class="header-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
         </a>
     
 </header>
@@ -80,8 +88,26 @@
             <!-- Define author's picture -->
 
 
+
+        
+    
+
 <nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Hyeongsun Kim</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -131,20 +157,6 @@
                 <li class="sidebar-button">
                     
                         <a
-                            class="sidebar-button-link open-algolia-search"
-                            href="#search"
-                            
-                            rel="noopener"
-                            title="Search"
-                        >
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
                             class="sidebar-button-link "
                             href="#about"
                             
@@ -173,20 +185,6 @@
                         >
                         <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="/mailto"
-                            
-                            rel="noopener"
-                            title="Mail"
-                        >
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
                     </a>
             </li>
             
@@ -533,22 +531,28 @@
         
 
 
+    
+        
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-times"></i>
         </div>
         
+            <img id="about-card-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
             <h4 id="about-card-name">Hyeongsun Kim</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Server Developer Junior</p>
 
             </div>
         
@@ -558,7 +562,7 @@
 
         
         
-<div id="cover" style="background-image:url('/assets/images/Comingsoon_log.jpg');"></div>
+<div id="cover" style="background-image:url('/assets/images/Comingsoon_log2.jpg');"></div>
         <!--SCRIPTS-->
 
 <script src="/assets/js/script-txlalwmtrrtfvyqmxjcncnynauyiuytyxdxbkaoife4sm68spo51stb2r0vn.min.js"></script>

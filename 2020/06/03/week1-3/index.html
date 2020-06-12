@@ -11,7 +11,7 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"articleBody":"Intro컴공선배 라이징 프로젝트 시작 서버 1주차\nMySQL compile install \nMySQL compile install\nMySQL 설치 공식 가이드 :  https://dev.mysql.com/doc/refman/8.0/en/installing-source-distribution.html\n\n\nMySQL 설치를 위한 의존성 패키지 다운로드\n\n12345$ apt-get update$ apt-get install cmake$ apt-get install libssl-dev$ apt-get install libboost-all-dev$ apt-get install libncurses5-dev libncursesw5-dev\n\n\nMySQL 다운로드\n\n\n공식 다운로드 링크 :  https://dev.mysql.com/downloads/mysql/\n\n123$ cd /usr/local$ wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.19.tar.gz$ tar xvfz mysql-8.0.19.tar.gz\n\n\nMySQL 설치 \n\n\nCmake option 공식 문서 : https://dev.mysql.com/doc/refman/8.0/en/source-configuration-options.html\n\nMySQL 설치 전에 소스 디렉토리 내에 build를 위한 디렉토리를 추가 생성하고 그 하단에서 작업 진행을 해야 한다.\n\ncmake .. 으로 이전 디렉토리 경로를 지정해 주기 때문에 잊지 말도록 하자\n\n\n1234567891011121314151617181920$ cd mysql-8.0.19$ mkdir Foldername$ cd Flodername$ sudo cmake .. \\-DCMAKE_INSTALL_PREFIX=/usr/local/mysql \\-DMYSQL_DATADIR=/usr/local/mysql/data \\-DMYSQL_UNIX_ADDR=/usr/local/mysql/mysql.sock \\-DMYSQL_TCP_PORT=3306 \\-DDEFAULT_CHARSET=utf8 \\-DDEFAULT_COLLATION=utf8_general_ci \\-DSYSCONFDIR=/etc \\-DWITH_EXTRA_CHARSETS=all \\-DWITH_INNOBASE_STORAGE_ENGINE=1 \\-DWITH_ARCHIVE_STORAGE_ENGINE=1 \\-DWITH_BLACKHOLE_STORAGE_ENGINE=1 \\-DDOWNLOAD_BOOST=1 \\-DWITH_BOOST=/usr/local/mysql/boost $ make$ make test$ make install\n\n\ncmake config 이후 make 과정은 정말 긴 시간이 걸리니 실수 하지 않도록 하자\n\n\nMySQL 데이터 베이스 초기화\n\n\n공식 문서 링크 :  https://dev.mysql.com/doc/refman/5.7/en/data-directory-initialization.html\n\nMySQL 그룹, 유저 생성\n\n\n시스템에 mysqld 실행에 필요한 사용자 그룹과 유저가 없는 경우 만들어 준다.groupadd mysql 은 mysql이라는 그룹을 만들어서 관리하겠다는 뜻useradd는 새로운 사용자를 추가하겠다는 뜻 -r 옵션은 system account를 만든다.-g 옵션은 어떤 그룹에 넣고 관리할 것인지, -s 옵션은 유저의 로그인 shell 을 지정cat /etc/passwd 를 통해 유저 목록을 확인할 수 있다.\n12$ groupadd mysql$ useradd -r -g mysql -s /bin/false mysql\n\n\n/usr/local/mysql 이동후 mysql-files 디렉토리 생성\n12$ cd /usr/local/mysql$ mkdir mysql-files\n\n디렉토리 사용자 및 그룹 권한 설정\n123$ chown -R mysql:mysql /usr/local/mysql$ chown mysql:mysql mysql-files$ chmod 750 mysql-files\n\n기본 데이터베이스 생성.\n123$ bin/mysqld --initialize --user=mysql \\--basedir=/usr/local/mysql \\--datadir=/usr/local/mysql/data\n이때 데이터베이스를 초기화 했을때 문구가 출력되는 데 맨아래에 temporary password가 나온다 후에 mysql 서버 연결에 필요하니 메모\n\n\n\nroot 암호 초기화\n\n\nmysql 서버 실행 \n&amp; 는 백그라운드에서 프로세스 실행\nmysql 서버 파일 복사, 선택적이지만 오류 발생시 구글링을 하며 원할한 해결을 위해 추천\n서버 접속이 아까 메모해뒀던 임시 비밀번호를 적는다.123$ bin/mysqld_safe --user=mysql &amp;$ cp support-files/mysql.server /etc/init.d/mysql.server$ bin/mysql -u root -p\n\n\n\n1mysql&gt; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;원하는 패스워드&#39;;\n\n\n서버 종료 1$ bin/mysqladmin -u root -p shutdown\n\n\n\nMySQL 서비스 등록\n\n12$ sudo cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld$ sudo vi /etc/init.d/mysqld\n\n\nmysqld 파일에 다음 루트 추가\n\nbasedir=/usr/local/mysql\ndatadir=/usr/local/mysql/data\n\nmysql 서비스 등록12$ sudo cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld$ update-rc.d mysqld defaults\n\n\n\n환경설정\n\n\netc/my.cnf 경로로 mysql 설정 파일 생성\n1$ vi /etc/my.cnf\n12345[mysqld]bind-address&#x3D;0.0.0.0port&#x3D;3306basedir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysqldatadir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;data\n\n설정이 완료되었다면 아래의 명령어로 MySQL Server를 시작하고 종료할 수 있다.\n1234$ service mysql start$ service mysql stop$ service mysql restart //서버를 중지했다가 다시 시작하는거$ service mysql status //서버 상태 확인. 나가려면 q 누르기\n\n","dateCreated":"2020-06-03T19:13:23+09:00","dateModified":"2020-06-05T15:55:55+09:00","datePublished":"2020-06-03T19:13:23+09:00","description":"","headline":"server_week_1-3 (MySQL install)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/03/week1-3/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"url":"http://yoursite.com/2020/06/03/week1-3/","keywords":"Today what I Learn"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro컴공선배 라이징 프로젝트 시작 서버 1주차\nMySQL compile install \nMySQL compile install\nMySQL 설치 공식 가이드 :  https://dev.mysql.com/doc/refman/8.0/en/installing-source-distribution.html\n\n\nMySQL 설치를 위한 의존성 패키지 다운로드\n\n12345$ apt-get update$ apt-get install cmake$ apt-get install libssl-dev$ apt-get install libboost-all-dev$ apt-get install libncurses5-dev libncursesw5-dev\n\n\nMySQL 다운로드\n\n\n공식 다운로드 링크 :  https://dev.mysql.com/downloads/mysql/\n\n123$ cd /usr/local$ wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.19.tar.gz$ tar xvfz mysql-8.0.19.tar.gz\n\n\nMySQL 설치 \n\n\nCmake option 공식 문서 : https://dev.mysql.com/doc/refman/8.0/en/source-configuration-options.html\n\nMySQL 설치 전에 소스 디렉토리 내에 build를 위한 디렉토리를 추가 생성하고 그 하단에서 작업 진행을 해야 한다.\n\ncmake .. 으로 이전 디렉토리 경로를 지정해 주기 때문에 잊지 말도록 하자\n\n\n1234567891011121314151617181920$ cd mysql-8.0.19$ mkdir Foldername$ cd Flodername$ sudo cmake .. \\-DCMAKE_INSTALL_PREFIX=/usr/local/mysql \\-DMYSQL_DATADIR=/usr/local/mysql/data \\-DMYSQL_UNIX_ADDR=/usr/local/mysql/mysql.sock \\-DMYSQL_TCP_PORT=3306 \\-DDEFAULT_CHARSET=utf8 \\-DDEFAULT_COLLATION=utf8_general_ci \\-DSYSCONFDIR=/etc \\-DWITH_EXTRA_CHARSETS=all \\-DWITH_INNOBASE_STORAGE_ENGINE=1 \\-DWITH_ARCHIVE_STORAGE_ENGINE=1 \\-DWITH_BLACKHOLE_STORAGE_ENGINE=1 \\-DDOWNLOAD_BOOST=1 \\-DWITH_BOOST=/usr/local/mysql/boost $ make$ make test$ make install\n\n\ncmake config 이후 make 과정은 정말 긴 시간이 걸리니 실수 하지 않도록 하자\n\n\nMySQL 데이터 베이스 초기화\n\n\n공식 문서 링크 :  https://dev.mysql.com/doc/refman/5.7/en/data-directory-initialization.html\n\nMySQL 그룹, 유저 생성\n\n\n시스템에 mysqld 실행에 필요한 사용자 그룹과 유저가 없는 경우 만들어 준다.groupadd mysql 은 mysql이라는 그룹을 만들어서 관리하겠다는 뜻useradd는 새로운 사용자를 추가하겠다는 뜻 -r 옵션은 system account를 만든다.-g 옵션은 어떤 그룹에 넣고 관리할 것인지, -s 옵션은 유저의 로그인 shell 을 지정cat /etc/passwd 를 통해 유저 목록을 확인할 수 있다.\n12$ groupadd mysql$ useradd -r -g mysql -s /bin/false mysql\n\n\n/usr/local/mysql 이동후 mysql-files 디렉토리 생성\n12$ cd /usr/local/mysql$ mkdir mysql-files\n\n디렉토리 사용자 및 그룹 권한 설정\n123$ chown -R mysql:mysql /usr/local/mysql$ chown mysql:mysql mysql-files$ chmod 750 mysql-files\n\n기본 데이터베이스 생성.\n123$ bin/mysqld --initialize --user=mysql \\--basedir=/usr/local/mysql \\--datadir=/usr/local/mysql/data\n이때 데이터베이스를 초기화 했을때 문구가 출력되는 데 맨아래에 temporary password가 나온다 후에 mysql 서버 연결에 필요하니 메모\n\n\n\nroot 암호 초기화\n\n\nmysql 서버 실행 \n&amp; 는 백그라운드에서 프로세스 실행\nmysql 서버 파일 복사, 선택적이지만 오류 발생시 구글링을 하며 원할한 해결을 위해 추천\n서버 접속이 아까 메모해뒀던 임시 비밀번호를 적는다.123$ bin/mysqld_safe --user=mysql &amp;$ cp support-files/mysql.server /etc/init.d/mysql.server$ bin/mysql -u root -p\n\n\n\n1mysql&gt; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;원하는 패스워드&#39;;\n\n\n서버 종료 1$ bin/mysqladmin -u root -p shutdown\n\n\n\nMySQL 서비스 등록\n\n12$ sudo cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld$ sudo vi /etc/init.d/mysqld\n\n\nmysqld 파일에 다음 루트 추가\n\nbasedir=/usr/local/mysql\ndatadir=/usr/local/mysql/data\n\nmysql 서비스 등록12$ sudo cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld$ update-rc.d mysqld defaults\n\n\n\n환경설정\n\n\netc/my.cnf 경로로 mysql 설정 파일 생성\n1$ vi /etc/my.cnf\n12345[mysqld]bind-address&#x3D;0.0.0.0port&#x3D;3306basedir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysqldatadir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;data\n\n설정이 완료되었다면 아래의 명령어로 MySQL Server를 시작하고 종료할 수 있다.\n1234$ service mysql start$ service mysql stop$ service mysql restart //서버를 중지했다가 다시 시작하는거$ service mysql status //서버 상태 확인. 나가려면 q 누르기\n\n","dateCreated":"2020-06-03T19:13:23+09:00","dateModified":"2020-06-05T15:55:55+09:00","datePublished":"2020-06-03T19:13:23+09:00","description":"","headline":"server_week_1-3 (MySQL install)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/03/week1-3/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/03/week1-3/","keywords":"Today what I Learn"}</script>
     <meta name="description" content="Intro컴공선배 라이징 프로젝트 시작 서버 1주차 MySQL compile install  MySQL compile install MySQL 설치 공식 가이드 :  https:&#x2F;&#x2F;dev.mysql.com&#x2F;doc&#x2F;refman&#x2F;8.0&#x2F;en&#x2F;installing-source-distribution.html   MySQL 설치를 위한 의존성 패키지 다운로드  12">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="server_week_1-3 (MySQL install)">
@@ -28,6 +28,8 @@
     
         
     
+    
+        <meta property="og:image" content="http://yoursite.com/assets/images/comingsoon_pic.png"/>
     
     
     
@@ -52,6 +54,10 @@
 
 
     
+        
+            
+        
+    
 
 <header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
@@ -73,6 +79,8 @@
             >
         
         
+            <img class="header-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
         </a>
     
 </header>
@@ -80,8 +88,26 @@
             <!-- Define author's picture -->
 
 
+
+        
+    
+
 <nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Hyeongsun Kim</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -131,20 +157,6 @@
                 <li class="sidebar-button">
                     
                         <a
-                            class="sidebar-button-link open-algolia-search"
-                            href="#search"
-                            
-                            rel="noopener"
-                            title="Search"
-                        >
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
                             class="sidebar-button-link "
                             href="#about"
                             
@@ -173,20 +185,6 @@
                         >
                         <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="/mailto"
-                            
-                            rel="noopener"
-                            title="Mail"
-                        >
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
                     </a>
             </li>
             
@@ -614,22 +612,28 @@
         
 
 
+    
+        
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-times"></i>
         </div>
         
+            <img id="about-card-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
             <h4 id="about-card-name">Hyeongsun Kim</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Server Developer Junior</p>
 
             </div>
         
@@ -639,7 +643,7 @@
 
         
         
-<div id="cover" style="background-image:url('/assets/images/Comingsoon_log.jpg');"></div>
+<div id="cover" style="background-image:url('/assets/images/Comingsoon_log2.jpg');"></div>
         <!--SCRIPTS-->
 
 <script src="/assets/js/script-txlalwmtrrtfvyqmxjcncnynauyiuytyxdxbkaoife4sm68spo51stb2r0vn.min.js"></script>

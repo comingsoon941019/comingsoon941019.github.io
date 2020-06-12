@@ -11,7 +11,7 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Website","@id":"http://yoursite.com","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"name":"Coming soon!","description":null,"url":"http://yoursite.com"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Website","@id":"http://yoursite.com","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"name":"Coming soon!","description":null,"url":"http://yoursite.com"}</script>
     <meta property="og:type" content="blog">
 <meta property="og:title" content="all-categories">
 <meta property="og:url" content="http://yoursite.com/all-categories/index.html">
@@ -25,6 +25,8 @@
     
         
     
+    
+        <meta property="og:image" content="http://yoursite.com/assets/images/comingsoon_pic.png"/>
     
     
     
@@ -47,6 +49,10 @@
 
 
     
+        
+            
+        
+    
 
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
@@ -68,6 +74,8 @@
             >
         
         
+            <img class="header-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
         </a>
     
 </header>
@@ -75,8 +83,26 @@
             <!-- Define author's picture -->
 
 
+
+        
+    
+
 <nav id="sidebar" data-behavior="1">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Hyeongsun Kim</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -126,20 +152,6 @@
                 <li class="sidebar-button">
                     
                         <a
-                            class="sidebar-button-link open-algolia-search"
-                            href="#search"
-                            
-                            rel="noopener"
-                            title="Search"
-                        >
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
                             class="sidebar-button-link "
                             href="#about"
                             
@@ -168,20 +180,6 @@
                         >
                         <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="/mailto"
-                            
-                            rel="noopener"
-                            title="Mail"
-                        >
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
                     </a>
             </li>
             
@@ -216,7 +214,7 @@
     <section class="boxes">
         
             
-                    <div id="posts-list-raising project" class="archive " data-category="raising project" data-parent-categories=""><h4 class="archive-title text-xlarge"><a class="link-unstyled" href="/categories/raising-project/">raising project (8)</a></h4><ul class="archive-posts"><li class="archive-post"><a class="archive-post-title" href="/2020/06/09/week2-3/">server_week_2-3 (aws, 도메인, https)</a><span class="archive-post-date"> - Jun 09, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/09/week2-2/">server_week_2-2 (aws, datagrid)</a><span class="archive-post-date"> - Jun 09, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/08/week2-1/">server_week_2-1 (aws begin)</a><span class="archive-post-date"> - Jun 08, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/04/week1-4/">server_week_1-4 (php install)</a><span class="archive-post-date"> - Jun 04, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/03/week1-3-1/">server_week_1-3-1 (MySQL root passwd 분실)</a><span class="archive-post-date"> - Jun 03, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/03/week1-3/">server_week_1-3 (MySQL install)</a><span class="archive-post-date"> - Jun 03, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/02/week1-2/">server_week_1-2 (Apache Compile install)</a><span class="archive-post-date"> - Jun 02, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/01/week1-1/">server_week_1-1 (ubuntu install)</a><span class="archive-post-date"> - Jun 01, 2020</span></li></ul></div>
+                    <div id="posts-list-raising project" class="archive " data-category="raising project" data-parent-categories=""><h4 class="archive-title text-xlarge"><a class="link-unstyled" href="/categories/raising-project/">raising project (8)</a></h4><ul class="archive-posts"><li class="archive-post"><a class="archive-post-title" href="/2020/06/10/week2-3/">server_week_2-3 (aws, 도메인, https)</a><span class="archive-post-date"> - Jun 10, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/09/week2-2/">server_week_2-2 (aws, datagrid)</a><span class="archive-post-date"> - Jun 09, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/08/week2-1/">server_week_2-1 (aws begin)</a><span class="archive-post-date"> - Jun 08, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/04/week1-4/">server_week_1-4 (php install)</a><span class="archive-post-date"> - Jun 04, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/03/week1-3-1/">server_week_1-3-1 (MySQL root passwd 분실)</a><span class="archive-post-date"> - Jun 03, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/03/week1-3/">server_week_1-3 (MySQL install)</a><span class="archive-post-date"> - Jun 03, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/02/week1-2/">server_week_1-2 (Apache Compile install)</a><span class="archive-post-date"> - Jun 02, 2020</span></li><li class="archive-post"><a class="archive-post-title" href="/2020/06/01/week1-1/">server_week_1-1 (ubuntu install)</a><span class="archive-post-date"> - Jun 01, 2020</span></li></ul></div>
             
         
     </section>
@@ -234,22 +232,28 @@
         
 
 
+    
+        
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-times"></i>
         </div>
         
+            <img id="about-card-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
             <h4 id="about-card-name">Hyeongsun Kim</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Server Developer Junior</p>
 
             </div>
         
@@ -259,7 +263,7 @@
 
         
         
-<div id="cover" style="background-image:url('/assets/images/Comingsoon_log.jpg');"></div>
+<div id="cover" style="background-image:url('/assets/images/Comingsoon_log2.jpg');"></div>
         <!--SCRIPTS-->
 
 <script src="/assets/js/script-txlalwmtrrtfvyqmxjcncnynauyiuytyxdxbkaoife4sm68spo51stb2r0vn.min.js"></script>

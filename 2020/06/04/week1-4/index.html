@@ -11,7 +11,7 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"articleBody":"Intro컴공선배 라이징 프로젝트 시작 서버 1주차\nphp compile install\nphp 설치\nphp 공식 설치 매뉴얼 : https://www.php.net/manual/en/install.unix.apache2.php\n\n\n의존성 패키지 설치\n123456789101112131415161718192021222324252627282930$ apt-get install libxml2-dev$ apt-get install libjpeg-dev$ apt-get install libpng-dev``` 2. php 다운로드``` bash$ cd /usr/local$ wget https://www.php.net/distributions/php-7.4.6.tar.gz$ tar xvfz php-7.4.6.tar.gz``` 3. php 설치``` bash$ cd php-7.4.6$ ./configure \\--with-apxs2=/usr/local/apache2.4/bin/apxs \\--enable-mysqlnd \\--with-mysql-sock=mysqlnd \\--with-mysqli=mysqlnd \\--with-pdo-mysql=mysqlnd \\--with-imap-ssl \\--with-iconv \\--enable-gd \\--with-jpeg \\--with-libxml \\--with-openssl$ make$ make test$ make install\n\napache 와 php 연동루트에 다음파일을 수정\n1$ vi /usr/local/apache2.4/conf/httpd.conf\n\n\nphp.ini 파일 셋팅\n12$ cd /usr/local/php-7.4.1$ cp php.ini-production /usr/local/lib/php.ini\n\n테스트를 위한 php 파일 작성\n12345$ cd /usr/local/apache2.4/htdocs$ vi phpinfo.php&lt;? phpphpinfo();?&gt;\n\n\n\n아파치 서버를 실행시킨후 확인\n1234$ sudo /usr/local/apache2.4/bin/httpd -k start$ ps -ef|grep httpd|grep -v grep$ sudo netstat -anp|grep httpd$ sudo curl http://127.0.0.1\n\n\n기타 탬플릿으로도 테스트 \n\n\nhtml 탬플릿을 하나 받아 테스트\n\n\n","dateCreated":"2020-06-04T16:03:56+09:00","dateModified":"2020-06-05T16:20:04+09:00","datePublished":"2020-06-04T16:03:56+09:00","description":"","headline":"server_week_1-4 (php install)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/04/week1-4/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"url":"http://yoursite.com/2020/06/04/week1-4/","keywords":"Today what I Learn"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro컴공선배 라이징 프로젝트 시작 서버 1주차\nphp compile install\nphp 설치\nphp 공식 설치 매뉴얼 : https://www.php.net/manual/en/install.unix.apache2.php\n\n\n의존성 패키지 설치\n123456789101112131415161718192021222324252627282930$ apt-get install libxml2-dev$ apt-get install libjpeg-dev$ apt-get install libpng-dev``` 2. php 다운로드``` bash$ cd /usr/local$ wget https://www.php.net/distributions/php-7.4.6.tar.gz$ tar xvfz php-7.4.6.tar.gz``` 3. php 설치``` bash$ cd php-7.4.6$ ./configure \\--with-apxs2=/usr/local/apache2.4/bin/apxs \\--enable-mysqlnd \\--with-mysql-sock=mysqlnd \\--with-mysqli=mysqlnd \\--with-pdo-mysql=mysqlnd \\--with-imap-ssl \\--with-iconv \\--enable-gd \\--with-jpeg \\--with-libxml \\--with-openssl$ make$ make test$ make install\n\napache 와 php 연동루트에 다음파일을 수정\n1$ vi /usr/local/apache2.4/conf/httpd.conf\n\n\nphp.ini 파일 셋팅\n12$ cd /usr/local/php-7.4.1$ cp php.ini-production /usr/local/lib/php.ini\n\n테스트를 위한 php 파일 작성\n12345$ cd /usr/local/apache2.4/htdocs$ vi phpinfo.php&lt;? phpphpinfo();?&gt;\n\n\n\n아파치 서버를 실행시킨후 확인\n1234$ sudo /usr/local/apache2.4/bin/httpd -k start$ ps -ef|grep httpd|grep -v grep$ sudo netstat -anp|grep httpd$ sudo curl http://127.0.0.1\n\n\n기타 탬플릿으로도 테스트 \n\n\nhtml 탬플릿을 하나 받아 테스트\n\n\n","dateCreated":"2020-06-04T16:03:56+09:00","dateModified":"2020-06-05T16:20:04+09:00","datePublished":"2020-06-04T16:03:56+09:00","description":"","headline":"server_week_1-4 (php install)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/04/week1-4/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/04/week1-4/","keywords":"Today what I Learn"}</script>
     <meta name="description" content="Intro컴공선배 라이징 프로젝트 시작 서버 1주차 php compile install php 설치 php 공식 설치 매뉴얼 : https:&#x2F;&#x2F;www.php.net&#x2F;manual&#x2F;en&#x2F;install.unix.apache2.php   의존성 패키지 설치 123456789101112131415161718192021222324252627282930$ apt-get">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="server_week_1-4 (php install)">
@@ -32,6 +32,8 @@
     
         
     
+    
+        <meta property="og:image" content="http://yoursite.com/assets/images/comingsoon_pic.png"/>
     
     
     
@@ -56,6 +58,10 @@
 
 
     
+        
+            
+        
+    
 
 <header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
@@ -77,6 +83,8 @@
             >
         
         
+            <img class="header-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
         </a>
     
 </header>
@@ -84,8 +92,26 @@
             <!-- Define author's picture -->
 
 
+
+        
+    
+
 <nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Hyeongsun Kim</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -135,20 +161,6 @@
                 <li class="sidebar-button">
                     
                         <a
-                            class="sidebar-button-link open-algolia-search"
-                            href="#search"
-                            
-                            rel="noopener"
-                            title="Search"
-                        >
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
                             class="sidebar-button-link "
                             href="#about"
                             
@@ -177,20 +189,6 @@
                         >
                         <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="/mailto"
-                            
-                            rel="noopener"
-                            title="Mail"
-                        >
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
                     </a>
             </li>
             
@@ -549,22 +547,28 @@
         
 
 
+    
+        
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-times"></i>
         </div>
         
+            <img id="about-card-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
             <h4 id="about-card-name">Hyeongsun Kim</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Server Developer Junior</p>
 
             </div>
         
@@ -574,7 +578,7 @@
 
         
         
-<div id="cover" style="background-image:url('/assets/images/Comingsoon_log.jpg');"></div>
+<div id="cover" style="background-image:url('/assets/images/Comingsoon_log2.jpg');"></div>
         <!--SCRIPTS-->
 
 <script src="/assets/js/script-txlalwmtrrtfvyqmxjcncnynauyiuytyxdxbkaoife4sm68spo51stb2r0vn.min.js"></script>

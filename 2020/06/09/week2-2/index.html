@@ -11,7 +11,7 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"articleBody":"Intro서버 2주차\ncyberduck 사용법\njet brain datagrid 사용\nMySQL 외부 접속\naws EC2로 인스턴스한 우분투에 APM 설치 \n\n\nVim 설치\n\nAPM 설치 https://webnautes.tistory.com/1185 \n\n\n1234$ sudo apt-get install apache2$ sudo apt-get install mysql-server$ sudo apt-get install php php-mysql$ sudo apt-get install phpmyadmin\n\n\nMySQL 설치 시에는 root 계정으로 외부접속하는거는 보안상 좋지 않으므로 새로운 계정을 생성\n\n1234$ mysql -u root -pmysql&gt; create database db DEFAULT CHARACTER SET utf8;mysql&gt; CREATE user '사용자이름' identified by '패스워드';mysql&gt; GRANT all privileges on *.* to '사용자'@'%';\n\n\n기본적으로 apache2의 디폴트 doc루트는 /var/www/html 이다.\n\n\nJetBrain DataGrid\n\n\njet brain 사의 DB를 외부접속하기위한 여러 툴중에 하나 이다. \n\n한달 동안 무료로 사용가능하며 대학생일 경우 대학교 이메일을 인증하면 1년간 Professional linecese를 이용 할 수 있다.\n\n아래 DB source 설정에서 mysql user와 비밀번호 EC2 인스턴스의 아이피를 적어 주어 연결한다.\n\n\nCyber duck\n\nCyber duck은  mac에서 주로 사용하는 ssh를 통해 파일을 전송할 수 이쓴 프로토콜인 SFTP을 지원하는 파일 브라우저이다.\n\n연결 \n\n\n\n연결할 인스턴스 선택 후 DNS의 주소를 복사\n\n추가 이름과 PK 입력\n\n연결이 완료되면 다음과 같이 GUI 환경에서 파일을 다룰 수 있다.\n\n\n","dateCreated":"2020-06-09T17:39:40+09:00","dateModified":"2020-06-10T14:15:06+09:00","datePublished":"2020-06-09T17:39:40+09:00","description":"","headline":"server_week_2-2 (aws, datagrid)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/09/week2-2/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"url":"http://yoursite.com/2020/06/09/week2-2/","keywords":"Today what I Learn"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro서버 2주차\ncyberduck 사용법\njet brain datagrid 사용\nMySQL 외부 접속\naws EC2로 인스턴스한 우분투에 APM 설치 \n\n\nVim 설치\n\nAPM 설치 https://webnautes.tistory.com/1185 \n\n\n1234$ sudo apt-get install apache2$ sudo apt-get install mysql-server$ sudo apt-get install php php-mysql$ sudo apt-get install phpmyadmin\n\n\nMySQL 설치 시에는 root 계정으로 외부접속하는거는 보안상 좋지 않으므로 새로운 계정을 생성\n\n1234$ mysql -u root -pmysql&gt; create database db DEFAULT CHARACTER SET utf8;mysql&gt; CREATE user '사용자이름' identified by '패스워드';mysql&gt; GRANT all privileges on *.* to '사용자'@'%';\n\n\n기본적으로 apache2의 디폴트 doc루트는 /var/www/html 이다.\n\n\nJetBrain DataGrid\n\n\njet brain 사의 DB를 외부접속하기위한 여러 툴중에 하나 이다. \n\n한달 동안 무료로 사용가능하며 대학생일 경우 대학교 이메일을 인증하면 1년간 Professional linecese를 이용 할 수 있다.\n\n아래 DB source 설정에서 mysql user와 비밀번호 EC2 인스턴스의 아이피를 적어 주어 연결한다.\n\n\nCyber duck\n\nCyber duck은  mac에서 주로 사용하는 ssh를 통해 파일을 전송할 수 이쓴 프로토콜인 SFTP을 지원하는 파일 브라우저이다.\n\n연결 \n\n\n\n연결할 인스턴스 선택 후 DNS의 주소를 복사\n\n추가 이름과 PK 입력\n\n연결이 완료되면 다음과 같이 GUI 환경에서 파일을 다룰 수 있다.\n\n\n","dateCreated":"2020-06-09T17:39:40+09:00","dateModified":"2020-06-10T14:15:06+09:00","datePublished":"2020-06-09T17:39:40+09:00","description":"","headline":"server_week_2-2 (aws, datagrid)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/09/week2-2/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/09/week2-2/","keywords":"Today what I Learn"}</script>
     <meta name="description" content="Intro서버 2주차 cyberduck 사용법 jet brain datagrid 사용 MySQL 외부 접속 aws EC2로 인스턴스한 우분투에 APM 설치    Vim 설치  APM 설치 https:&#x2F;&#x2F;webnautes.tistory.com&#x2F;1185    1234$ sudo apt-get install apache2$ sudo apt-get install">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="server_week_2-2 (aws, datagrid)">
@@ -36,6 +36,8 @@
         
     
     
+        <meta property="og:image" content="http://yoursite.com/assets/images/comingsoon_pic.png"/>
+    
     
     
     
@@ -59,6 +61,10 @@
 
 
     
+        
+            
+        
+    
 
 <header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
@@ -80,6 +86,8 @@
             >
         
         
+            <img class="header-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
         </a>
     
 </header>
@@ -87,8 +95,26 @@
             <!-- Define author's picture -->
 
 
+
+        
+    
+
 <nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Hyeongsun Kim</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -138,20 +164,6 @@
                 <li class="sidebar-button">
                     
                         <a
-                            class="sidebar-button-link open-algolia-search"
-                            href="#search"
-                            
-                            rel="noopener"
-                            title="Search"
-                        >
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
                             class="sidebar-button-link "
                             href="#about"
                             
@@ -180,20 +192,6 @@
                         >
                         <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="/mailto"
-                            
-                            rel="noopener"
-                            title="Mail"
-                        >
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
                     </a>
             </li>
             
@@ -311,7 +309,7 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/09/week2-3/"
+                    href="/2020/06/10/week2-3/"
                     data-tooltip="server_week_2-3 (aws, 도메인, https)"
                     aria-label="PREVIOUS: server_week_2-3 (aws, 도메인, https)"
                 >
@@ -426,7 +424,7 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/09/week2-3/"
+                    href="/2020/06/10/week2-3/"
                     data-tooltip="server_week_2-3 (aws, 도메인, https)"
                     aria-label="PREVIOUS: server_week_2-3 (aws, 도메인, https)"
                 >
@@ -569,22 +567,28 @@
         
 
 
+    
+        
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-times"></i>
         </div>
         
+            <img id="about-card-picture" src="/assets/images/comingsoon_pic.png" alt="Author&#39;s picture"/>
+        
             <h4 id="about-card-name">Hyeongsun Kim</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>역시 사람보다는 컴퓨터가 기억력이 좋다.</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>author.job</p>
+                <p>Server Developer Junior</p>
 
             </div>
         
@@ -594,7 +598,7 @@
 
         
         
-<div id="cover" style="background-image:url('/assets/images/Comingsoon_log.jpg');"></div>
+<div id="cover" style="background-image:url('/assets/images/Comingsoon_log2.jpg');"></div>
         <!--SCRIPTS-->
 
 <script src="/assets/js/script-txlalwmtrrtfvyqmxjcncnynauyiuytyxdxbkaoife4sm68spo51stb2r0vn.min.js"></script>
