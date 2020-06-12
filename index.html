@@ -240,7 +240,31 @@
 <li>https 적용 (let’s encrypt)</li>
 <li>웹템플릿 적용해서 나만의 웹사이트 만들어오기 → HTML, CSS, JS 활용</li>
 </ol>
-<h2 id="aws-EC2-도메인-적용"><a href="#aws-EC2-도메인-적용" class="headerlink" title="aws EC2 도메인 적용"></a>aws EC2 도메인 적용</h2>
+<h2 id="aws-EC2-도메인-적용"><a href="#aws-EC2-도메인-적용" class="headerlink" title="aws EC2 도메인 적용"></a>aws EC2 도메인 적용</h2><ol>
+<li>무료 도메인 Freenom : <a href="https://www.freenom.com/en/index.html?lang=en" target="_blank" rel="noopener">https://www.freenom.com/en/index.html?lang=en</a></li>
+</ol>
+<ul>
+<li><p>회원가입후 원하는 도메인을 설정 무료로 사용하기 위해서 free표시를 꼭 확인하자</p>
+</li>
+<li><p>aws 서비스에서 Route53 서비스 이용<br><img src="/img/post2-3_1.png" alt="windows-telnet-1"></p>
+</li>
+<li><p>호스트 영역을 생성후 다음과 같이 name serve를 얻을 수 있다.<br><img src="/img/post2-3_2.png" alt="windows-telnet-1"></p>
+</li>
+<li><p>이제 다시 freenom 사이트에서 발급받은 네임 서버를 등록해 준다.<br><img src="/img/post2-3_3.png" alt="windows-telnet-1"><br><img src="/img/post2-3_4.png" alt="windows-telnet-1"></p>
+</li>
+</ul>
+<ol start="2">
+<li>https 인증</li>
+</ol>
+<ul>
+<li><p>Certificate Manager 서비스를 사용하여 인증서를 받는다<br><img src="/img/post2-3_5.png" alt="windows-telnet-1"></p>
+</li>
+<li><p>인증서를 문제 없이 받았다면 EC2 서비스의 로드 밸런서에서 도메인과 https 포트를 등록하며 방금 받은 인증서를 등록한다.<br><img src="/img/post2-3_6.png" alt="windows-telnet-1"></p>
+</li>
+<li><p>모든 설정이 끝난후에 https:// 로 접속하면 확인 가능하다. 다만 항상 EC2인스턴스 설정에 포트를 열어주는 것을 잊지말자…<br><img src="/img/post2-3_7.png" alt="windows-telnet-1"></p>
+</li>
+</ul>
+
                     
                         
 
@@ -1091,7 +1115,7 @@
 
         
         
-<div id="cover" style="background-image:url('/assets/images/Comingsoon_log.jpeg');"></div>
+<div id="cover" style="background-image:url('/assets/images/Comingsoon_log.jpg');"></div>
         <!--SCRIPTS-->
 
 <script src="/assets/js/script-txlalwmtrrtfvyqmxjcncnynauyiuytyxdxbkaoife4sm68spo51stb2r0vn.min.js"></script>

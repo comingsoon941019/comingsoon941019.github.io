@@ -11,7 +11,7 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"articleBody":"Intro서버 2주차\naws EC2 도메인 적용\nhttps 보안 인증\n\n로컬 윈도우 컴퓨터에 비트나미로 서버 구축, → 폰 와이파이 풀고  Phpinfo 외부접속 캡쳐이후 과제는 모두 aws 컴퓨터에 시행, aws ec2 임대, nginx, php, mysql 패키지 관리자로 설치\n\n\n도메인 적용\nhttps 적용 (let’s encrypt)\n웹템플릿 적용해서 나만의 웹사이트 만들어오기 → HTML, CSS, JS 활용\n\naws EC2 도메인 적용","dateCreated":"2020-06-09T18:35:10+09:00","dateModified":"2020-06-09T18:37:46+09:00","datePublished":"2020-06-09T18:35:10+09:00","description":"","headline":"server_week_2-3 (aws, 도메인, https)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/09/week2-3/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"url":"http://yoursite.com/2020/06/09/week2-3/","keywords":"Today what I Learn"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"articleBody":"Intro서버 2주차\naws EC2 도메인 적용\nhttps 보안 인증\n\n로컬 윈도우 컴퓨터에 비트나미로 서버 구축, → 폰 와이파이 풀고  Phpinfo 외부접속 캡쳐이후 과제는 모두 aws 컴퓨터에 시행, aws ec2 임대, nginx, php, mysql 패키지 관리자로 설치\n\n\n도메인 적용\nhttps 적용 (let’s encrypt)\n웹템플릿 적용해서 나만의 웹사이트 만들어오기 → HTML, CSS, JS 활용\n\naws EC2 도메인 적용\n무료 도메인 Freenom : https://www.freenom.com/en/index.html?lang=en\n\n\n회원가입후 원하는 도메인을 설정 무료로 사용하기 위해서 free표시를 꼭 확인하자\n\naws 서비스에서 Route53 서비스 이용\n\n호스트 영역을 생성후 다음과 같이 name serve를 얻을 수 있다.\n\n이제 다시 freenom 사이트에서 발급받은 네임 서버를 등록해 준다.\n\n\n\nhttps 인증\n\n\nCertificate Manager 서비스를 사용하여 인증서를 받는다\n\n인증서를 문제 없이 받았다면 EC2 서비스의 로드 밸런서에서 도메인과 https 포트를 등록하며 방금 받은 인증서를 등록한다.\n\n모든 설정이 끝난후에 https:// 로 접속하면 확인 가능하다. 다만 항상 EC2인스턴스 설정에 포트를 열어주는 것을 잊지말자…\n\n\n","dateCreated":"2020-06-09T18:35:10+09:00","dateModified":"2020-06-12T15:49:53+09:00","datePublished":"2020-06-09T18:35:10+09:00","description":"","headline":"server_week_2-3 (aws, 도메인, https)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/09/week2-3/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/","mailto"]},"url":"http://yoursite.com/2020/06/09/week2-3/","keywords":"Today what I Learn"}</script>
     <meta name="description" content="Intro서버 2주차 aws EC2 도메인 적용 https 보안 인증  로컬 윈도우 컴퓨터에 비트나미로 서버 구축, → 폰 와이파이 풀고  Phpinfo 외부접속 캡쳐이후 과제는 모두 aws 컴퓨터에 시행, aws ec2 임대, nginx, php, mysql 패키지 관리자로 설치   도메인 적용 https 적용 (let’s encrypt) 웹템플릿 적용해">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="server_week_2-3 (aws, 도메인, https)">
@@ -19,11 +19,19 @@
 <meta property="og:site_name" content="Coming soon!">
 <meta property="og:description" content="Intro서버 2주차 aws EC2 도메인 적용 https 보안 인증  로컬 윈도우 컴퓨터에 비트나미로 서버 구축, → 폰 와이파이 풀고  Phpinfo 외부접속 캡쳐이후 과제는 모두 aws 컴퓨터에 시행, aws ec2 임대, nginx, php, mysql 패키지 관리자로 설치   도메인 적용 https 적용 (let’s encrypt) 웹템플릿 적용해">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/img/post2-3_1.png">
+<meta property="og:image" content="http://yoursite.com/img/post2-3_2.png">
+<meta property="og:image" content="http://yoursite.com/img/post2-3_3.png">
+<meta property="og:image" content="http://yoursite.com/img/post2-3_4.png">
+<meta property="og:image" content="http://yoursite.com/img/post2-3_5.png">
+<meta property="og:image" content="http://yoursite.com/img/post2-3_6.png">
+<meta property="og:image" content="http://yoursite.com/img/post2-3_7.png">
 <meta property="article:published_time" content="2020-06-09T09:35:10.000Z">
-<meta property="article:modified_time" content="2020-06-09T09:37:46.070Z">
+<meta property="article:modified_time" content="2020-06-12T06:49:53.793Z">
 <meta property="article:author" content="Hyeongsun Kim">
 <meta property="article:tag" content="Today what I Learn">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/img/post2-3_1.png">
     
     
         
@@ -243,7 +251,31 @@
 <li>https 적용 (let’s encrypt)</li>
 <li>웹템플릿 적용해서 나만의 웹사이트 만들어오기 → HTML, CSS, JS 활용</li>
 </ol>
-<h2 id="aws-EC2-도메인-적용"><a href="#aws-EC2-도메인-적용" class="headerlink" title="aws EC2 도메인 적용"></a>aws EC2 도메인 적용</h2>
+<h2 id="aws-EC2-도메인-적용"><a href="#aws-EC2-도메인-적용" class="headerlink" title="aws EC2 도메인 적용"></a>aws EC2 도메인 적용</h2><ol>
+<li>무료 도메인 Freenom : <a href="https://www.freenom.com/en/index.html?lang=en" target="_blank" rel="noopener">https://www.freenom.com/en/index.html?lang=en</a></li>
+</ol>
+<ul>
+<li><p>회원가입후 원하는 도메인을 설정 무료로 사용하기 위해서 free표시를 꼭 확인하자</p>
+</li>
+<li><p>aws 서비스에서 Route53 서비스 이용<br><img src="/img/post2-3_1.png" alt="windows-telnet-1"></p>
+</li>
+<li><p>호스트 영역을 생성후 다음과 같이 name serve를 얻을 수 있다.<br><img src="/img/post2-3_2.png" alt="windows-telnet-1"></p>
+</li>
+<li><p>이제 다시 freenom 사이트에서 발급받은 네임 서버를 등록해 준다.<br><img src="/img/post2-3_3.png" alt="windows-telnet-1"><br><img src="/img/post2-3_4.png" alt="windows-telnet-1"></p>
+</li>
+</ul>
+<ol start="2">
+<li>https 인증</li>
+</ol>
+<ul>
+<li><p>Certificate Manager 서비스를 사용하여 인증서를 받는다<br><img src="/img/post2-3_5.png" alt="windows-telnet-1"></p>
+</li>
+<li><p>인증서를 문제 없이 받았다면 EC2 서비스의 로드 밸런서에서 도메인과 https 포트를 등록하며 방금 받은 인증서를 등록한다.<br><img src="/img/post2-3_6.png" alt="windows-telnet-1"></p>
+</li>
+<li><p>모든 설정이 끝난후에 https:// 로 접속하면 확인 가능하다. 다만 항상 EC2인스턴스 설정에 포트를 열어주는 것을 잊지말자…<br><img src="/img/post2-3_7.png" alt="windows-telnet-1"></p>
+</li>
+</ul>
+
             
 
 
@@ -544,7 +576,7 @@
 
         
         
-<div id="cover" style="background-image:url('/assets/images/Comingsoon_log.jpeg');"></div>
+<div id="cover" style="background-image:url('/assets/images/Comingsoon_log.jpg');"></div>
         <!--SCRIPTS-->
 
 <script src="/assets/js/script-txlalwmtrrtfvyqmxjcncnynauyiuytyxdxbkaoife4sm68spo51stb2r0vn.min.js"></script>
