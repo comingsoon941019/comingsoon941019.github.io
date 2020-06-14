@@ -202,6 +202,167 @@
                     
                         <a
                             class="link-unstyled"
+                            href="/2020/06/14/week2-4/"
+                            aria-label=": server_week_2-4 ( ssl, https )"
+                        >
+                            server_week_2-4 ( ssl, https )
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-06-14T13:46:12+09:00">
+	
+		    Jun 14, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/raising-project/">raising project</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>서버 2주차</p>
+<p>nginx</p>
+<p>Let’s Encrypt SSL Certificates</p>
+<h2 id="SSL-HTTPS-인증"><a href="#SSL-HTTPS-인증" class="headerlink" title="SSL, HTTPS 인증"></a>SSL, HTTPS 인증</h2><ol>
+<li>Let’s Encrypt</li>
+</ol>
+<ul>
+<li><p>보안 웹사이트를 위한 인증서의 수동 생성, 유효성 확인, 디지털 서명, 설치, 갱신 등 종전의 복잡한 과정을 없애주는 자동화된 프로세스를 통해 전송 계층 보안 암호화를 위해 무료 X.509인증서를 제공하는 인증기관</p>
+</li>
+<li><p><a href="https://letsencrypt.org/ko/" target="_blank" rel="noopener">https://letsencrypt.org/ko/</a></p>
+</li>
+<li><p>Let’s Encrypt의 SSL 인증서를 사용하기 위해서 certbot이라는 오픈소스 라이브러리를 사용</p>
+</li>
+<li><p><a href="https://certbot.eff.org/" target="_blank" rel="noopener">https://certbot.eff.org/</a></p>
+</li>
+</ul>
+<ol start="2">
+<li>Setting </li>
+</ol>
+<ul>
+<li><p>이과정을 거치기전 도메인을 적용된 상태에서 시작한다.</p>
+</li>
+<li><p>install certbot</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install certbot python-cerbot-nginx</span><br><span class="line">certbot --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>certbot를 사용해 Nginx에 SSL 인증서를 다운받기위해선 아래의 두가지 명령어 중 하나를 선택해 사용</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot --nginx</span><br><span class="line">sudo certbot certonly --nginx</span><br></pre></td></tr></table></figure>
+<p>첫번째 명령어는 certbot이 nginx의 conf를 자동으로 수정회 최적화된 HTTPS(SSL)환경이 제공됨, 강제적으로 수행되어 실제 운영되는 서버에 적용은 고려해야한다.</p>
+</li>
+</ul>
+<p>두번쨰 명령러는 사용자가 직접 nginx에 관련 conf를 추가해 주어야한다.</p>
+<ul>
+<li><p>아래의 경로에서 생성된 SSL Certificate를 확인할 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/letsencrypt/live/[domain]/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>마지막으로 Let’s Encrypt의 인증서는 90일마다 갱신이 필요하다 이를 자동으로 갱신 하는 방법이 있지만 후에 알아보도록 한다.</p>
+</li>
+</ul>
+<p>참고 사이트 : <a href="https://velog.io/@minholee_93/Nginx-Lets-Encrypt-SSL-Certificates" target="_blank" rel="noopener">https://velog.io/@minholee_93/Nginx-Lets-Encrypt-SSL-Certificates</a></p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/06/14/week2-4/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/06/13/week2-2-1/"
+                            aria-label=": server_week_2-2-1 (cyber duck sftp upload error)"
+                        >
+                            server_week_2-2-1 (cyber duck sftp upload error)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-06-13T16:16:12+09:00">
+	
+		    Jun 13, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/raising-project/">raising project</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>서버 2주차</p>
+<p>cyberduck 파일 전송시 permission denied </p>
+<h2 id="Ubuntu에서-접속한-계정에-권한-부여"><a href="#Ubuntu에서-접속한-계정에-권한-부여" class="headerlink" title="Ubuntu에서 접속한 계정에 권한 부여"></a>Ubuntu에서 접속한 계정에 권한 부여</h2><ol>
+<li>사이버 덕 연결시 기입했던 사용자 이름을 다음 명령어로 ftp 권한을 부여 </li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown [USER NAME] /var/www/html</span><br></pre></td></tr></table></figure>
+
+<p>이 간단한걸 해맸다는 걸 기념하며..</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/06/13/week2-2-1/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
                             href="/2020/06/10/week2-3/"
                             aria-label=": server_week_2-3 (aws, 도메인, https)"
                         >

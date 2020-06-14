@@ -6,31 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Coming soon!">
-    <title>server_week_2-2 (aws, datagrid) - Coming soon!</title>
+    <title>server_week_2-2-1 (cyber duck sftp upload error) - Coming soon!</title>
     <meta name="author" content="Hyeongsun Kim">
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro서버 2주차\ncyberduck 사용법\njet brain datagrid 사용\nMySQL 외부 접속\naws EC2로 인스턴스한 우분투에 APM 설치 \n\n\nVim 설치\n\nAPM 설치 https://webnautes.tistory.com/1185 \n\n\n1234$ sudo apt-get install apache2$ sudo apt-get install mysql-server$ sudo apt-get install php php-mysql$ sudo apt-get install phpmyadmin\n\n\nMySQL 설치 시에는 root 계정으로 외부접속하는거는 보안상 좋지 않으므로 새로운 계정을 생성\n\n1234$ mysql -u root -pmysql&gt; create database db DEFAULT CHARACTER SET utf8;mysql&gt; CREATE user '사용자이름' identified by '패스워드';mysql&gt; GRANT all privileges on *.* to '사용자'@'%';\n\n\n기본적으로 apache2의 디폴트 doc루트는 /var/www/html 이다.\n\n\nJetBrain DataGrid\n\n\njet brain 사의 DB를 외부접속하기위한 여러 툴중에 하나 이다. \n\n한달 동안 무료로 사용가능하며 대학생일 경우 대학교 이메일을 인증하면 1년간 Professional linecese를 이용 할 수 있다.\n\n아래 DB source 설정에서 mysql user와 비밀번호 EC2 인스턴스의 아이피를 적어 주어 연결한다.\n\n\nCyber duck\n\nCyber duck은  mac에서 주로 사용하는 ssh를 통해 파일을 전송할 수 이쓴 프로토콜인 SFTP을 지원하는 파일 브라우저이다.\n\n연결 \n\n\n\n연결할 인스턴스 선택 후 DNS의 주소를 복사\n\n추가 이름과 PK 입력\n\n연결이 완료되면 다음과 같이 GUI 환경에서 파일을 다룰 수 있다.\n\n\n","dateCreated":"2020-06-09T17:39:40+09:00","dateModified":"2020-06-14T13:59:28+09:00","datePublished":"2020-06-09T17:39:40+09:00","description":"","headline":"server_week_2-2 (aws, datagrid)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/09/week2-2/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/09/week2-2/","keywords":"Today what I Learn"}</script>
-    <meta name="description" content="Intro서버 2주차 cyberduck 사용법 jet brain datagrid 사용 MySQL 외부 접속 aws EC2로 인스턴스한 우분투에 APM 설치    Vim 설치  APM 설치 https:&#x2F;&#x2F;webnautes.tistory.com&#x2F;1185    1234$ sudo apt-get install apache2$ sudo apt-get install">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro서버 2주차\ncyberduck 파일 전송시 permission denied \nUbuntu에서 접속한 계정에 권한 부여\n사이버 덕 연결시 기입했던 사용자 이름을 다음 명령어로 ftp 권한을 부여 \n\n1sudo chown [USER NAME] /var/www/html\n\n이 간단한걸 해맸다는 걸 기념하며..\n","dateCreated":"2020-06-13T16:16:12+09:00","dateModified":"2020-06-14T13:59:26+09:00","datePublished":"2020-06-13T16:16:12+09:00","description":"","headline":"server_week_2-2-1 (cyber duck sftp upload error)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/13/week2-2-1/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/13/week2-2-1/","keywords":"Today what I Learn"}</script>
+    <meta name="description" content="Intro서버 2주차 cyberduck 파일 전송시 permission denied  Ubuntu에서 접속한 계정에 권한 부여 사이버 덕 연결시 기입했던 사용자 이름을 다음 명령어로 ftp 권한을 부여   1sudo chown [USER NAME] &#x2F;var&#x2F;www&#x2F;html  이 간단한걸 해맸다는 걸 기념하며..">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="server_week_2-2 (aws, datagrid)">
-<meta property="og:url" content="http://yoursite.com/2020/06/09/week2-2/index.html">
+<meta property="og:title" content="server_week_2-2-1 (cyber duck sftp upload error)">
+<meta property="og:url" content="http://yoursite.com/2020/06/13/week2-2-1/index.html">
 <meta property="og:site_name" content="Coming soon!">
-<meta property="og:description" content="Intro서버 2주차 cyberduck 사용법 jet brain datagrid 사용 MySQL 외부 접속 aws EC2로 인스턴스한 우분투에 APM 설치    Vim 설치  APM 설치 https:&#x2F;&#x2F;webnautes.tistory.com&#x2F;1185    1234$ sudo apt-get install apache2$ sudo apt-get install">
+<meta property="og:description" content="Intro서버 2주차 cyberduck 파일 전송시 permission denied  Ubuntu에서 접속한 계정에 권한 부여 사이버 덕 연결시 기입했던 사용자 이름을 다음 명령어로 ftp 권한을 부여   1sudo chown [USER NAME] &#x2F;var&#x2F;www&#x2F;html  이 간단한걸 해맸다는 걸 기념하며..">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/img/post2-2_DG.png">
-<meta property="og:image" content="http://yoursite.com/img/post2-2_DG_CONF.png">
-<meta property="og:image" content="http://yoursite.com/img/post2-2_CD.png">
-<meta property="og:image" content="http://yoursite.com/img/post2-2_CD_1.png">
-<meta property="og:image" content="http://yoursite.com/img/post2-2_CD_2.png">
-<meta property="og:image" content="http://yoursite.com/img/post2-2_CD_3.png">
-<meta property="article:published_time" content="2020-06-09T08:39:40.000Z">
-<meta property="article:modified_time" content="2020-06-14T04:59:28.500Z">
+<meta property="article:published_time" content="2020-06-13T07:16:12.000Z">
+<meta property="article:modified_time" content="2020-06-14T04:59:26.956Z">
 <meta property="article:author" content="Hyeongsun Kim">
 <meta property="article:tag" content="Today what I Learn">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/img/post2-2_DG.png">
     
     
         
@@ -212,14 +205,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            server_week_2-2 (aws, datagrid)
+            server_week_2-2-1 (cyber duck sftp upload error)
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2020-06-09T17:39:40+09:00">
+    <time datetime="2020-06-13T16:16:12+09:00">
 	
-		    Jun 09, 2020
+		    Jun 13, 2020
     	
     </time>
     
@@ -238,53 +231,13 @@
     <div class="post-content markdown">
         <div class="main-content-wrap">
             <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>서버 2주차</p>
-<p>cyberduck 사용법</p>
-<p>jet brain datagrid 사용</p>
-<h2 id="MySQL-외부-접속"><a href="#MySQL-외부-접속" class="headerlink" title="MySQL 외부 접속"></a>MySQL 외부 접속</h2><ol>
-<li>aws EC2로 인스턴스한 우분투에 APM 설치 </li>
+<p>cyberduck 파일 전송시 permission denied </p>
+<h2 id="Ubuntu에서-접속한-계정에-권한-부여"><a href="#Ubuntu에서-접속한-계정에-권한-부여" class="headerlink" title="Ubuntu에서 접속한 계정에 권한 부여"></a>Ubuntu에서 접속한 계정에 권한 부여</h2><ol>
+<li>사이버 덕 연결시 기입했던 사용자 이름을 다음 명령어로 ftp 권한을 부여 </li>
 </ol>
-<ul>
-<li><p>Vim 설치</p>
-</li>
-<li><p>APM 설치 <a href="https://webnautes.tistory.com/1185" target="_blank" rel="noopener">https://webnautes.tistory.com/1185</a> </p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install apache2</span><br><span class="line">$ sudo apt-get install mysql-server</span><br><span class="line">$ sudo apt-get install php php-mysql</span><br><span class="line">$ sudo apt-get install phpmyadmin</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown [USER NAME] /var/www/html</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>MySQL 설치 시에는 root 계정으로 외부접속하는거는 보안상 좋지 않으므로 새로운 계정을 생성</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root -p</span><br><span class="line">mysql&gt; create database db DEFAULT CHARACTER SET utf8;</span><br><span class="line">mysql&gt; CREATE user <span class="string">'사용자이름'</span> identified by <span class="string">'패스워드'</span>;</span><br><span class="line">mysql&gt; GRANT all privileges on *.* to <span class="string">'사용자'</span>@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>기본적으로 apache2의 디폴트 doc루트는 /var/www/html 이다.</li>
-</ul>
-<ol start="2">
-<li>JetBrain DataGrid<br><img src="/img/post2-2_DG.png" alt="windows-telnet-1"></li>
-</ol>
-<ul>
-<li><p>jet brain 사의 DB를 외부접속하기위한 여러 툴중에 하나 이다. </p>
-</li>
-<li><p>한달 동안 무료로 사용가능하며 대학생일 경우 대학교 이메일을 인증하면 1년간 Professional linecese를 이용 할 수 있다.</p>
-</li>
-<li><p>아래 DB source 설정에서 mysql user와 비밀번호 EC2 인스턴스의 아이피를 적어 주어 연결한다.<br><img src="/img/post2-2_DG_CONF.png" alt="windows-telnet-1"></p>
-</li>
-</ul>
-<h2 id="Cyber-duck"><a href="#Cyber-duck" class="headerlink" title="Cyber duck"></a>Cyber duck</h2><p><img src="/img/post2-2_CD.png" alt="windows-telnet-1"></p>
-<ol>
-<li><p>Cyber duck은  mac에서 주로 사용하는 ssh를 통해 파일을 전송할 수 이쓴 프로토콜인 SFTP을 지원하는 파일 브라우저이다.</p>
-</li>
-<li><p>연결 </p>
-</li>
-</ol>
-<ul>
-<li><p>연결할 인스턴스 선택 후 DNS의 주소를 복사<br><img src="/img/post2-2_CD_1.png" alt="windows-telnet-1"></p>
-</li>
-<li><p>추가 이름과 PK 입력<br><img src="/img/post2-2_CD_2.png" alt="windows-telnet-1"></p>
-</li>
-<li><p>연결이 완료되면 다음과 같이 GUI 환경에서 파일을 다룰 수 있다.<br><img src="/img/post2-2_CD_3.png" alt="windows-telnet-1"></p>
-</li>
-</ul>
+<p>이 간단한걸 해맸다는 걸 기념하며..</p>
 
             
 
@@ -309,9 +262,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/10/week2-3/"
-                    data-tooltip="server_week_2-3 (aws, 도메인, https)"
-                    aria-label="PREVIOUS: server_week_2-3 (aws, 도메인, https)"
+                    href="/2020/06/14/week2-4/"
+                    data-tooltip="server_week_2-4 ( ssl, https )"
+                    aria-label="PREVIOUS: server_week_2-4 ( ssl, https )"
                 >
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -323,9 +276,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/08/week2-1/"
-                    data-tooltip="server_week_2-1 (aws begin)"
-                    aria-label="NEXT: server_week_2-1 (aws begin)"
+                    href="/2020/06/10/week2-3/"
+                    data-tooltip="server_week_2-3 (aws, 도메인, https)"
+                    aria-label="NEXT: server_week_2-3 (aws, 도메인, https)"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
@@ -350,7 +303,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/09/week2-2/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/13/week2-2-1/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -363,7 +316,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/09/week2-2/"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/13/week2-2-1/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -376,7 +329,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/09/week2-2/"
+                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/13/week2-2-1/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -424,9 +377,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/10/week2-3/"
-                    data-tooltip="server_week_2-3 (aws, 도메인, https)"
-                    aria-label="PREVIOUS: server_week_2-3 (aws, 도메인, https)"
+                    href="/2020/06/14/week2-4/"
+                    data-tooltip="server_week_2-4 ( ssl, https )"
+                    aria-label="PREVIOUS: server_week_2-4 ( ssl, https )"
                 >
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -438,9 +391,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/08/week2-1/"
-                    data-tooltip="server_week_2-1 (aws begin)"
-                    aria-label="NEXT: server_week_2-1 (aws begin)"
+                    href="/2020/06/10/week2-3/"
+                    data-tooltip="server_week_2-3 (aws, 도메인, https)"
+                    aria-label="NEXT: server_week_2-3 (aws, 도메인, https)"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
@@ -465,7 +418,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/09/week2-2/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/13/week2-2-1/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -478,7 +431,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/09/week2-2/"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/13/week2-2-1/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -491,7 +444,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/09/week2-2/"
+                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/13/week2-2-1/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -525,7 +478,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/09/week2-2/"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/13/week2-2-1/"
                         aria-label="Share on Facebook"
                     >
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
@@ -538,7 +491,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/09/week2-2/"
+                        href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/13/week2-2-1/"
                         aria-label="Share on Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
@@ -551,7 +504,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://plus.google.com/share?url=http://yoursite.com/2020/06/09/week2-2/"
+                        href="https://plus.google.com/share?url=http://yoursite.com/2020/06/13/week2-2-1/"
                         aria-label="Share on Google+"
                     >
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
