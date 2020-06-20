@@ -6,21 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Coming soon!">
-    <title>server_week_2-4 ( ssl, https ) - Coming soon!</title>
+    <title>node_p_1 - Coming soon!</title>
     <meta name="author" content="Hyeongsun Kim">
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro서버 2주차\nnginx\nLet’s Encrypt SSL Certificates\nSSL, HTTPS 인증\nLet’s Encrypt\n\n\n보안 웹사이트를 위한 인증서의 수동 생성, 유효성 확인, 디지털 서명, 설치, 갱신 등 종전의 복잡한 과정을 없애주는 자동화된 프로세스를 통해 전송 계층 보안 암호화를 위해 무료 X.509인증서를 제공하는 인증기관\n\nhttps://letsencrypt.org/ko/\n\nLet’s Encrypt의 SSL 인증서를 사용하기 위해서 certbot이라는 오픈소스 라이브러리를 사용\n\nhttps://certbot.eff.org/\n\n\n\nSetting \n\n\n이과정을 거치기전 도메인을 적용된 상태에서 시작한다.\n\ninstall certbot\n12sudo apt-get install certbot python-cerbot-nginxcertbot --help\n\ncertbot를 사용해 Nginx에 SSL 인증서를 다운받기위해선 아래의 두가지 명령어 중 하나를 선택해 사용\n12sudo certbot --nginxsudo certbot certonly --nginx\n첫번째 명령어는 certbot이 nginx의 conf를 자동으로 수정회 최적화된 HTTPS(SSL)환경이 제공됨, 강제적으로 수행되어 실제 운영되는 서버에 적용은 고려해야한다.\n\n\n두번쨰 명령러는 사용자가 직접 nginx에 관련 conf를 추가해 주어야한다.\n\n아래의 경로에서 생성된 SSL Certificate를 확인할 수 있습니다.\n1/etc/letsencrypt/live/[domain]/\n\n마지막으로 Let’s Encrypt의 인증서는 90일마다 갱신이 필요하다 이를 자동으로 갱신 하는 방법이 있지만 후에 알아보도록 한다.\n\n\n참고 사이트 : https://velog.io/@minholee_93/Nginx-Lets-Encrypt-SSL-Certificates\n","dateCreated":"2020-06-14T13:46:12+09:00","dateModified":"2020-06-14T13:59:23+09:00","datePublished":"2020-06-14T13:46:12+09:00","description":"","headline":"server_week_2-4 ( ssl, https )","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/14/week2-4/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/14/week2-4/","keywords":"Today what I Learn"}</script>
-    <meta name="description" content="Intro서버 2주차 nginx Let’s Encrypt SSL Certificates SSL, HTTPS 인증 Let’s Encrypt   보안 웹사이트를 위한 인증서의 수동 생성, 유효성 확인, 디지털 서명, 설치, 갱신 등 종전의 복잡한 과정을 없애주는 자동화된 프로세스를 통해 전송 계층 보안 암호화를 위해 무료 X.509인증서를 제공하는 인증기관">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro모의 외주 대비 Node js 공부\nNode.js\n개발 환경 설정\n\n\nLTS = long term soft 장기적인 업데이트와 지원이 가능 실제 서비스 환경에서 사용해야할 버젼\nNode —v, npm—v\nVscode 에서 개발 하며 standard js패키지를 추가 설치하여 js  환경을 좀더 간편하게 개발할 수 있게 한다.\n\n\nI/O 와 프로그래밍 패러다임\n\n\n먼져 Node 가 생겨난 이유는 기존에 web server(apache…)는 쓰레드와 같은 동시적인 프로그래밍이 불가능 했다.\n속도와 관련된 성능이 큰 비중을 차지하고 관련) 네트워크 트래픽을 통해서 라우팅(전달)이 중요 \n비동기 vs 동기  위와 같은 문제를 해결하기 위한 node은 2가지 모델 \n동기화는 프로세스를 진행중 끝날때 까지 다른 프로세스는 대기 하여 같은 시기에 (동기화) 하게 된다\n비동기는 서로 다른 프로세스는 다른 시점에서 처리 한다. 이를 위해 node js 는 이벤트 루프라는 방법을 사용, 정확히는 node js 는 내부에 v8이라는 js의 무언가를 사용\nNon-blocking vs blocking 는 프로세스 진행중 다른 프로세스를 block해서 성능 저하가 될수 있다. 따라 node 는 non-blocking 을 사용\njs는 이벤트 주도 방식의 언어 반대는 쓰레드풀 방식 \n\nJavaScript\nJavaScript\n\n\n스크립트 언어\n인터프리터 언어 : 컴파일을 거치지 않고 바로 실행하는 인터프리터 언어\n자바랑은 이름만 비슷하며 전혀 다른 언어\n웹의 컨텐츠를 동적으로 변경할때 사용하는 언어\nJs 는 electron이라는 데스크탑 어플리케이션도 가능하다\n\n\nJs Expression\n\n\n값을 만들어내는 간단한 코드를 표현식이라고 함 ex)1,”a”,true 등등\nalert();\n\n\nKeywords\n\n\nVar // 변수를 선언하기 위한 예약어\n\n\nMothereif \n\n\njs에서 유효한 변수명을 확인해주는 사이트\n\n\n주석\n\n\n//, /* */\n\n\n변수\n\n\nLet a = value; // 변수를 선언\nLet? Var?\n\n\nVar / let, const\n\n\nEs 5 = var\nEs 6 = let, const\n\n\nVar 와 Hoisting\n\n\n함수를 밑에 선언하고 위에서 호출해서 사용이 가능하다,  변수도 가능하다 이를 Hoisting이라고 한다.\nHoisting은 선언부가 밑에 있을때 선언부만 위로 끌어올려서 사용하는 식이다.\n하지만 ES6의 let 으로 선언 했을 경우에는 hoisting 현상이 발생하지 않는다. \n\n\n자료형\n\n\n기본적으로 js의 자료형은 동적 타이핑이라고 한다. \nnull, undefined : 비어있는 값을 null, 값을 지정해 주지 않았을 경우 undefined\nInt형과 같이 Number라는 변수가 있다.\nTemplate string  = ${name} : ss\nSymbol : 은 같은 값이어도 다르게 인식 고유한 값을 만들어 낼때 사용\n\n\nClass\n\n\nes6부터 지원\n클래스는 hoisting이 발생하지 않는다.\nConstructor : class의 생성자\ngetter와 setter를 지원한다.\nclass child extends parents 상속\n\n\nPromise\n\n\nEs6 부터 지원\n생성자를 통해서 promise 객체를 만들 수 있다.\n생성자의 인자로 excutor라는 인자를 사용\nPromise 관련 문법은 따로 포스팅\n\n\nArrow function \n\n\n이것또한 Es6부터 지원 \n\n\nAsycnc, await\n\n\nES 2017 부터 표준이 됐으며 비동기 처리 기법\n\n","dateCreated":"2020-06-14T14:01:24+09:00","dateModified":"2020-06-14T14:06:11+09:00","datePublished":"2020-06-14T14:01:24+09:00","description":"","headline":"node_p_1","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/14/node-p-1/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/14/node-p-1/","keywords":"Today what I Learn"}</script>
+    <meta name="description" content="Intro모의 외주 대비 Node js 공부 Node.js 개발 환경 설정   LTS &#x3D; long term soft 장기적인 업데이트와 지원이 가능 실제 서비스 환경에서 사용해야할 버젼 Node —v, npm—v Vscode 에서 개발 하며 standard js패키지를 추가 설치하여 js  환경을 좀더 간편하게 개발할 수 있게 한다.   I&#x2F;O 와 프로그래">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="server_week_2-4 ( ssl, https )">
-<meta property="og:url" content="http://yoursite.com/2020/06/14/week2-4/index.html">
+<meta property="og:title" content="node_p_1">
+<meta property="og:url" content="http://yoursite.com/2020/06/14/node-p-1/index.html">
 <meta property="og:site_name" content="Coming soon!">
-<meta property="og:description" content="Intro서버 2주차 nginx Let’s Encrypt SSL Certificates SSL, HTTPS 인증 Let’s Encrypt   보안 웹사이트를 위한 인증서의 수동 생성, 유효성 확인, 디지털 서명, 설치, 갱신 등 종전의 복잡한 과정을 없애주는 자동화된 프로세스를 통해 전송 계층 보안 암호화를 위해 무료 X.509인증서를 제공하는 인증기관">
+<meta property="og:description" content="Intro모의 외주 대비 Node js 공부 Node.js 개발 환경 설정   LTS &#x3D; long term soft 장기적인 업데이트와 지원이 가능 실제 서비스 환경에서 사용해야할 버젼 Node —v, npm—v Vscode 에서 개발 하며 standard js패키지를 추가 설치하여 js  환경을 좀더 간편하게 개발할 수 있게 한다.   I&#x2F;O 와 프로그래">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-06-14T04:46:12.000Z">
-<meta property="article:modified_time" content="2020-06-14T04:59:23.081Z">
+<meta property="article:published_time" content="2020-06-14T05:01:24.000Z">
+<meta property="article:modified_time" content="2020-06-14T05:06:11.668Z">
 <meta property="article:author" content="Hyeongsun Kim">
 <meta property="article:tag" content="Today what I Learn">
 <meta name="twitter:card" content="summary">
@@ -205,12 +205,12 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            server_week_2-4 ( ssl, https )
+            node_p_1
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2020-06-14T13:46:12+09:00">
+    <time datetime="2020-06-14T14:01:24+09:00">
 	
 		    Jun 14, 2020
     	
@@ -218,7 +218,7 @@
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/raising-project/">raising project</a>
+    <a class="category-link" href="/categories/Node-js/">Node.js</a>
 
 
     
@@ -230,45 +230,125 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>서버 2주차</p>
-<p>nginx</p>
-<p>Let’s Encrypt SSL Certificates</p>
-<h2 id="SSL-HTTPS-인증"><a href="#SSL-HTTPS-인증" class="headerlink" title="SSL, HTTPS 인증"></a>SSL, HTTPS 인증</h2><ol>
-<li>Let’s Encrypt</li>
+            <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>모의 외주 대비 Node js 공부</p>
+<h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><ol>
+<li>개발 환경 설정</li>
 </ol>
 <ul>
-<li><p>보안 웹사이트를 위한 인증서의 수동 생성, 유효성 확인, 디지털 서명, 설치, 갱신 등 종전의 복잡한 과정을 없애주는 자동화된 프로세스를 통해 전송 계층 보안 암호화를 위해 무료 X.509인증서를 제공하는 인증기관</p>
-</li>
-<li><p><a href="https://letsencrypt.org/ko/" target="_blank" rel="noopener">https://letsencrypt.org/ko/</a></p>
-</li>
-<li><p>Let’s Encrypt의 SSL 인증서를 사용하기 위해서 certbot이라는 오픈소스 라이브러리를 사용</p>
-</li>
-<li><p><a href="https://certbot.eff.org/" target="_blank" rel="noopener">https://certbot.eff.org/</a></p>
-</li>
+<li>LTS = long term soft 장기적인 업데이트와 지원이 가능 실제 서비스 환경에서 사용해야할 버젼</li>
+<li>Node —v, npm—v</li>
+<li>Vscode 에서 개발 하며 standard js패키지를 추가 설치하여 js  환경을 좀더 간편하게 개발할 수 있게 한다.</li>
 </ul>
 <ol start="2">
-<li>Setting </li>
+<li>I/O 와 프로그래밍 패러다임</li>
 </ol>
 <ul>
-<li><p>이과정을 거치기전 도메인을 적용된 상태에서 시작한다.</p>
-</li>
-<li><p>install certbot</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install certbot python-cerbot-nginx</span><br><span class="line">certbot --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>certbot를 사용해 Nginx에 SSL 인증서를 다운받기위해선 아래의 두가지 명령어 중 하나를 선택해 사용</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot --nginx</span><br><span class="line">sudo certbot certonly --nginx</span><br></pre></td></tr></table></figure>
-<p>첫번째 명령어는 certbot이 nginx의 conf를 자동으로 수정회 최적화된 HTTPS(SSL)환경이 제공됨, 강제적으로 수행되어 실제 운영되는 서버에 적용은 고려해야한다.</p>
-</li>
+<li>먼져 Node 가 생겨난 이유는 기존에 web server(apache…)는 쓰레드와 같은 동시적인 프로그래밍이 불가능 했다.</li>
+<li>속도와 관련된 성능이 큰 비중을 차지하고 관련) 네트워크 트래픽을 통해서 라우팅(전달)이 중요 </li>
+<li>비동기 vs 동기  위와 같은 문제를 해결하기 위한 node은 2가지 모델 </li>
+<li>동기화는 프로세스를 진행중 끝날때 까지 다른 프로세스는 대기 하여 같은 시기에 (동기화) 하게 된다</li>
+<li>비동기는 서로 다른 프로세스는 다른 시점에서 처리 한다. 이를 위해 node js 는 이벤트 루프라는 방법을 사용, 정확히는 node js 는 내부에 v8이라는 js의 무언가를 사용</li>
+<li>Non-blocking vs blocking 는 프로세스 진행중 다른 프로세스를 block해서 성능 저하가 될수 있다. 따라 node 는 non-blocking 을 사용</li>
+<li>js는 이벤트 주도 방식의 언어 반대는 쓰레드풀 방식 </li>
 </ul>
-<p>두번쨰 명령러는 사용자가 직접 nginx에 관련 conf를 추가해 주어야한다.</p>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ol>
+<li>JavaScript</li>
+</ol>
 <ul>
-<li><p>아래의 경로에서 생성된 SSL Certificate를 확인할 수 있습니다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/letsencrypt/live/[domain]/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>마지막으로 Let’s Encrypt의 인증서는 90일마다 갱신이 필요하다 이를 자동으로 갱신 하는 방법이 있지만 후에 알아보도록 한다.</p>
-</li>
+<li>스크립트 언어</li>
+<li>인터프리터 언어 : 컴파일을 거치지 않고 바로 실행하는 인터프리터 언어</li>
+<li>자바랑은 이름만 비슷하며 전혀 다른 언어</li>
+<li>웹의 컨텐츠를 동적으로 변경할때 사용하는 언어</li>
+<li>Js 는 electron이라는 데스크탑 어플리케이션도 가능하다</li>
 </ul>
-<p>참고 사이트 : <a href="https://velog.io/@minholee_93/Nginx-Lets-Encrypt-SSL-Certificates" target="_blank" rel="noopener">https://velog.io/@minholee_93/Nginx-Lets-Encrypt-SSL-Certificates</a></p>
+<ol start="2">
+<li>Js Expression</li>
+</ol>
+<ul>
+<li>값을 만들어내는 간단한 코드를 표현식이라고 함 ex)1,”a”,true 등등</li>
+<li>alert();</li>
+</ul>
+<ol start="3">
+<li>Keywords</li>
+</ol>
+<ul>
+<li>Var // 변수를 선언하기 위한 예약어</li>
+</ul>
+<ol start="4">
+<li>Mothereif </li>
+</ol>
+<ul>
+<li>js에서 유효한 변수명을 확인해주는 사이트</li>
+</ul>
+<ol start="5">
+<li>주석</li>
+</ol>
+<ul>
+<li>//, /* */</li>
+</ul>
+<ol start="6">
+<li>변수</li>
+</ol>
+<ul>
+<li>Let a = value; // 변수를 선언</li>
+<li>Let? Var?</li>
+</ul>
+<ol start="7">
+<li>Var / let, const</li>
+</ol>
+<ul>
+<li>Es 5 = var</li>
+<li>Es 6 = let, const</li>
+</ul>
+<ol start="8">
+<li>Var 와 Hoisting</li>
+</ol>
+<ul>
+<li>함수를 밑에 선언하고 위에서 호출해서 사용이 가능하다,  변수도 가능하다 이를 Hoisting이라고 한다.</li>
+<li>Hoisting은 선언부가 밑에 있을때 선언부만 위로 끌어올려서 사용하는 식이다.</li>
+<li>하지만 ES6의 let 으로 선언 했을 경우에는 hoisting 현상이 발생하지 않는다. </li>
+</ul>
+<ol start="9">
+<li>자료형</li>
+</ol>
+<ul>
+<li>기본적으로 js의 자료형은 동적 타이핑이라고 한다. </li>
+<li>null, undefined : 비어있는 값을 null, 값을 지정해 주지 않았을 경우 undefined</li>
+<li>Int형과 같이 Number라는 변수가 있다.</li>
+<li>Template string  = <code>${name} : ss</code></li>
+<li>Symbol : 은 같은 값이어도 다르게 인식 고유한 값을 만들어 낼때 사용</li>
+</ul>
+<ol start="10">
+<li>Class</li>
+</ol>
+<ul>
+<li>es6부터 지원</li>
+<li>클래스는 hoisting이 발생하지 않는다.</li>
+<li>Constructor : class의 생성자</li>
+<li>getter와 setter를 지원한다.</li>
+<li>class child extends parents 상속</li>
+</ul>
+<ol start="11">
+<li>Promise</li>
+</ol>
+<ul>
+<li>Es6 부터 지원</li>
+<li>생성자를 통해서 promise 객체를 만들 수 있다.</li>
+<li>생성자의 인자로 excutor라는 인자를 사용</li>
+<li>Promise 관련 문법은 따로 포스팅</li>
+</ul>
+<ol start="12">
+<li>Arrow function </li>
+</ol>
+<ul>
+<li>이것또한 Es6부터 지원 </li>
+</ul>
+<ol start="13">
+<li>Asycnc, await</li>
+</ol>
+<ul>
+<li>ES 2017 부터 표준이 됐으며 비동기 처리 기법</li>
+</ul>
 
             
 
@@ -293,9 +373,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/14/node-p-1/"
-                    data-tooltip="node_p_1"
-                    aria-label="PREVIOUS: node_p_1"
+                    href="/2020/06/21/week3-1/"
+                    data-tooltip="server_week_3-1 ( DataGrip, MySQL, Query )"
+                    aria-label="PREVIOUS: server_week_3-1 ( DataGrip, MySQL, Query )"
                 >
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -307,9 +387,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/13/week2-2-1/"
-                    data-tooltip="server_week_2-2-1 (cyber duck sftp upload error)"
-                    aria-label="NEXT: server_week_2-2-1 (cyber duck sftp upload error)"
+                    href="/2020/06/14/week2-4/"
+                    data-tooltip="server_week_2-4 ( ssl, https )"
+                    aria-label="NEXT: server_week_2-4 ( ssl, https )"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
@@ -334,7 +414,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/14/node-p-1/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -347,7 +427,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/14/node-p-1/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -360,7 +440,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/14/node-p-1/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -408,9 +488,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/14/node-p-1/"
-                    data-tooltip="node_p_1"
-                    aria-label="PREVIOUS: node_p_1"
+                    href="/2020/06/21/week3-1/"
+                    data-tooltip="server_week_3-1 ( DataGrip, MySQL, Query )"
+                    aria-label="PREVIOUS: server_week_3-1 ( DataGrip, MySQL, Query )"
                 >
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -422,9 +502,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/13/week2-2-1/"
-                    data-tooltip="server_week_2-2-1 (cyber duck sftp upload error)"
-                    aria-label="NEXT: server_week_2-2-1 (cyber duck sftp upload error)"
+                    href="/2020/06/14/week2-4/"
+                    data-tooltip="server_week_2-4 ( ssl, https )"
+                    aria-label="NEXT: server_week_2-4 ( ssl, https )"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
@@ -449,7 +529,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/14/node-p-1/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -462,7 +542,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/14/node-p-1/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -475,7 +555,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/14/node-p-1/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -509,7 +589,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/14/week2-4/"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/14/node-p-1/"
                         aria-label="Share on Facebook"
                     >
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
@@ -522,7 +602,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/14/week2-4/"
+                        href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/14/node-p-1/"
                         aria-label="Share on Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
@@ -535,7 +615,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://plus.google.com/share?url=http://yoursite.com/2020/06/14/week2-4/"
+                        href="https://plus.google.com/share?url=http://yoursite.com/2020/06/14/node-p-1/"
                         aria-label="Share on Google+"
                     >
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>

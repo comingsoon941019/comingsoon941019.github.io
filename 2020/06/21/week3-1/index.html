@@ -6,24 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Coming soon!">
-    <title>server_week_2-4 ( ssl, https ) - Coming soon!</title>
+    <title>server_week_3-1 ( DataGrip, MySQL, Query ) - Coming soon!</title>
     <meta name="author" content="Hyeongsun Kim">
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro서버 2주차\nnginx\nLet’s Encrypt SSL Certificates\nSSL, HTTPS 인증\nLet’s Encrypt\n\n\n보안 웹사이트를 위한 인증서의 수동 생성, 유효성 확인, 디지털 서명, 설치, 갱신 등 종전의 복잡한 과정을 없애주는 자동화된 프로세스를 통해 전송 계층 보안 암호화를 위해 무료 X.509인증서를 제공하는 인증기관\n\nhttps://letsencrypt.org/ko/\n\nLet’s Encrypt의 SSL 인증서를 사용하기 위해서 certbot이라는 오픈소스 라이브러리를 사용\n\nhttps://certbot.eff.org/\n\n\n\nSetting \n\n\n이과정을 거치기전 도메인을 적용된 상태에서 시작한다.\n\ninstall certbot\n12sudo apt-get install certbot python-cerbot-nginxcertbot --help\n\ncertbot를 사용해 Nginx에 SSL 인증서를 다운받기위해선 아래의 두가지 명령어 중 하나를 선택해 사용\n12sudo certbot --nginxsudo certbot certonly --nginx\n첫번째 명령어는 certbot이 nginx의 conf를 자동으로 수정회 최적화된 HTTPS(SSL)환경이 제공됨, 강제적으로 수행되어 실제 운영되는 서버에 적용은 고려해야한다.\n\n\n두번쨰 명령러는 사용자가 직접 nginx에 관련 conf를 추가해 주어야한다.\n\n아래의 경로에서 생성된 SSL Certificate를 확인할 수 있습니다.\n1/etc/letsencrypt/live/[domain]/\n\n마지막으로 Let’s Encrypt의 인증서는 90일마다 갱신이 필요하다 이를 자동으로 갱신 하는 방법이 있지만 후에 알아보도록 한다.\n\n\n참고 사이트 : https://velog.io/@minholee_93/Nginx-Lets-Encrypt-SSL-Certificates\n","dateCreated":"2020-06-14T13:46:12+09:00","dateModified":"2020-06-14T13:59:23+09:00","datePublished":"2020-06-14T13:46:12+09:00","description":"","headline":"server_week_2-4 ( ssl, https )","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/14/week2-4/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/14/week2-4/","keywords":"Today what I Learn"}</script>
-    <meta name="description" content="Intro서버 2주차 nginx Let’s Encrypt SSL Certificates SSL, HTTPS 인증 Let’s Encrypt   보안 웹사이트를 위한 인증서의 수동 생성, 유효성 확인, 디지털 서명, 설치, 갱신 등 종전의 복잡한 과정을 없애주는 자동화된 프로세스를 통해 전송 계층 보안 암호화를 위해 무료 X.509인증서를 제공하는 인증기관">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro서버 3주차\nDataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다.\nDB 설계\n요구 사항 수집 분석\n\n\n먼저 실제 세계 에서 어떤 시스템이 필요한지 요구사항 정리\n요구사항에 대해 필요한 데이터 분석\n\n\n설계방법\n\n\nE-R 모델과 릴레이션 변환 규칙을 이용한 설계\n정규화를 이용한 설계\n\n설계하고자 하는 기능을 문장으로 표현하는게 효과적이다. \n\n다음과 같이 DB 설계에 공부가 미흡한상태로 바로 설계 부터 했는데 쿼리문 작성시 구조가 잘못되어 불편함이 많았다.\n\n\n여기서 테이블은 정말 쉽게 구조화 하고 쿼리문까지 생성이 가능한 https://aquerytool.com/ 사이트를 이용한다.\n\nQuery\nJoin\n\n\n다음 그림에서 join의 개념을 한눈에 볼 수 있다.\n\njoin의 사용 쿼리는 \n12345SELECT ~~FROM TABLE_ALEFT JOIN TABLE_B ON TABLE_A.KEY &#x3D; TABLE_B.KEY\n\nLeft Join : A,B 두개의 테이블 중 A값의 전체와, A의 KEY 값과 B KEY 값이 같은 결과를 리턴\n\nInner Join : ID값이 서로 중복되는 값만 나타낸다.\n\nFull Outer Join : MySQL은 FULL OUTER JOIN이 없다. 그래서 LEFT JOIN 과 RIGHT JOIN을 이용해 FULL OUTER JOIN을 사용\n\n\n출처: https://yoo-hyeok.tistory.com/98 [유혁의 엉터리 개발]\n","dateCreated":"2020-06-21T01:14:57+09:00","dateModified":"2020-06-21T02:05:29+09:00","datePublished":"2020-06-21T01:14:57+09:00","description":"","headline":"server_week_3-1 ( DataGrip, MySQL, Query )","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/21/week3-1/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/21/week3-1/","keywords":"Today what I Learn"}</script>
+    <meta name="description" content="Intro서버 3주차 DataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다. DB 설계 요구 사항 수집 분석   먼저 실제 세계 에서 어떤 시스템이 필요한지 요구사항 정리 요구사항에 대해 필요한 데이터 분석   설계방법   E-R 모델과 릴레이션 변환 규칙을 이용한 설계 정규화를 이용한 설계  설계하고자 하는 기능을 문장으로 표현하는게 효">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="server_week_2-4 ( ssl, https )">
-<meta property="og:url" content="http://yoursite.com/2020/06/14/week2-4/index.html">
+<meta property="og:title" content="server_week_3-1 ( DataGrip, MySQL, Query )">
+<meta property="og:url" content="http://yoursite.com/2020/06/21/week3-1/index.html">
 <meta property="og:site_name" content="Coming soon!">
-<meta property="og:description" content="Intro서버 2주차 nginx Let’s Encrypt SSL Certificates SSL, HTTPS 인증 Let’s Encrypt   보안 웹사이트를 위한 인증서의 수동 생성, 유효성 확인, 디지털 서명, 설치, 갱신 등 종전의 복잡한 과정을 없애주는 자동화된 프로세스를 통해 전송 계층 보안 암호화를 위해 무료 X.509인증서를 제공하는 인증기관">
+<meta property="og:description" content="Intro서버 3주차 DataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다. DB 설계 요구 사항 수집 분석   먼저 실제 세계 에서 어떤 시스템이 필요한지 요구사항 정리 요구사항에 대해 필요한 데이터 분석   설계방법   E-R 모델과 릴레이션 변환 규칙을 이용한 설계 정규화를 이용한 설계  설계하고자 하는 기능을 문장으로 표현하는게 효">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-06-14T04:46:12.000Z">
-<meta property="article:modified_time" content="2020-06-14T04:59:23.081Z">
+<meta property="og:image" content="http://yoursite.com/img/post3-1_3.png">
+<meta property="og:image" content="http://yoursite.com/img/post3-1_1.png">
+<meta property="og:image" content="http://yoursite.com/img/post3-1_2.png">
+<meta property="article:published_time" content="2020-06-20T16:14:57.000Z">
+<meta property="article:modified_time" content="2020-06-20T17:05:29.281Z">
 <meta property="article:author" content="Hyeongsun Kim">
 <meta property="article:tag" content="Today what I Learn">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/img/post3-1_3.png">
     
     
         
@@ -205,14 +209,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            server_week_2-4 ( ssl, https )
+            server_week_3-1 ( DataGrip, MySQL, Query )
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2020-06-14T13:46:12+09:00">
+    <time datetime="2020-06-21T01:14:57+09:00">
 	
-		    Jun 14, 2020
+		    Jun 21, 2020
     	
     </time>
     
@@ -230,45 +234,46 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>서버 2주차</p>
-<p>nginx</p>
-<p>Let’s Encrypt SSL Certificates</p>
-<h2 id="SSL-HTTPS-인증"><a href="#SSL-HTTPS-인증" class="headerlink" title="SSL, HTTPS 인증"></a>SSL, HTTPS 인증</h2><ol>
-<li>Let’s Encrypt</li>
+            <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>서버 3주차</p>
+<p>DataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다.</p>
+<h2 id="DB-설계"><a href="#DB-설계" class="headerlink" title="DB 설계"></a>DB 설계</h2><ol>
+<li>요구 사항 수집 분석</li>
 </ol>
 <ul>
-<li><p>보안 웹사이트를 위한 인증서의 수동 생성, 유효성 확인, 디지털 서명, 설치, 갱신 등 종전의 복잡한 과정을 없애주는 자동화된 프로세스를 통해 전송 계층 보안 암호화를 위해 무료 X.509인증서를 제공하는 인증기관</p>
-</li>
-<li><p><a href="https://letsencrypt.org/ko/" target="_blank" rel="noopener">https://letsencrypt.org/ko/</a></p>
-</li>
-<li><p>Let’s Encrypt의 SSL 인증서를 사용하기 위해서 certbot이라는 오픈소스 라이브러리를 사용</p>
-</li>
-<li><p><a href="https://certbot.eff.org/" target="_blank" rel="noopener">https://certbot.eff.org/</a></p>
-</li>
+<li>먼저 실제 세계 에서 어떤 시스템이 필요한지 요구사항 정리</li>
+<li>요구사항에 대해 필요한 데이터 분석</li>
 </ul>
 <ol start="2">
-<li>Setting </li>
+<li>설계방법</li>
 </ol>
 <ul>
-<li><p>이과정을 거치기전 도메인을 적용된 상태에서 시작한다.</p>
-</li>
-<li><p>install certbot</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install certbot python-cerbot-nginx</span><br><span class="line">certbot --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>certbot를 사용해 Nginx에 SSL 인증서를 다운받기위해선 아래의 두가지 명령어 중 하나를 선택해 사용</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot --nginx</span><br><span class="line">sudo certbot certonly --nginx</span><br></pre></td></tr></table></figure>
-<p>첫번째 명령어는 certbot이 nginx의 conf를 자동으로 수정회 최적화된 HTTPS(SSL)환경이 제공됨, 강제적으로 수행되어 실제 운영되는 서버에 적용은 고려해야한다.</p>
-</li>
+<li>E-R 모델과 릴레이션 변환 규칙을 이용한 설계</li>
+<li>정규화를 이용한 설계</li>
 </ul>
-<p>두번쨰 명령러는 사용자가 직접 nginx에 관련 conf를 추가해 주어야한다.</p>
+<p>설계하고자 하는 기능을 문장으로 표현하는게 효과적이다. </p>
 <ul>
-<li><p>아래의 경로에서 생성된 SSL Certificate를 확인할 수 있습니다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/letsencrypt/live/[domain]/</span><br></pre></td></tr></table></figure>
+<li>다음과 같이 DB 설계에 공부가 미흡한상태로 바로 설계 부터 했는데 쿼리문 작성시 구조가 잘못되어 불편함이 많았다.<br><img src="/img/post3-1_3.png" alt="windows-telnet-1"></li>
+</ul>
+<ul>
+<li>여기서 테이블은 정말 쉽게 구조화 하고 쿼리문까지 생성이 가능한 <a href="https://aquerytool.com/" target="_blank" rel="noopener">https://aquerytool.com/</a> 사이트를 이용한다.<br><img src="/img/post3-1_1.png" alt="windows-telnet-1"></li>
+</ul>
+<h2 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h2><ol>
+<li>Join</li>
+</ol>
+<ul>
+<li><p>다음 그림에서 join의 개념을 한눈에 볼 수 있다.<br><img src="/img/post3-1_2.png" alt="windows-telnet-1"></p>
 </li>
-<li><p>마지막으로 Let’s Encrypt의 인증서는 90일마다 갱신이 필요하다 이를 자동으로 갱신 하는 방법이 있지만 후에 알아보도록 한다.</p>
+<li><p>join의 사용 쿼리는 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT ~~</span><br><span class="line"></span><br><span class="line">FROM TABLE_A</span><br><span class="line"></span><br><span class="line">LEFT JOIN TABLE_B ON TABLE_A.KEY &#x3D; TABLE_B.KEY</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Left Join : A,B 두개의 테이블 중 A값의 전체와, A의 KEY 값과 B KEY 값이 같은 결과를 리턴</p>
+</li>
+<li><p>Inner Join : ID값이 서로 중복되는 값만 나타낸다.</p>
+</li>
+<li><p>Full Outer Join : MySQL은 FULL OUTER JOIN이 없다. 그래서 LEFT JOIN 과 RIGHT JOIN을 이용해 FULL OUTER JOIN을 사용</p>
 </li>
 </ul>
-<p>참고 사이트 : <a href="https://velog.io/@minholee_93/Nginx-Lets-Encrypt-SSL-Certificates" target="_blank" rel="noopener">https://velog.io/@minholee_93/Nginx-Lets-Encrypt-SSL-Certificates</a></p>
+<p>출처: <a href="https://yoo-hyeok.tistory.com/98" target="_blank" rel="noopener">https://yoo-hyeok.tistory.com/98</a> [유혁의 엉터리 개발]</p>
 
             
 
@@ -290,14 +295,11 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a
-                    class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/14/node-p-1/"
-                    data-tooltip="node_p_1"
-                    aria-label="PREVIOUS: node_p_1"
-                >
-                    
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                     </a>
@@ -307,9 +309,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/13/week2-2-1/"
-                    data-tooltip="server_week_2-2-1 (cyber duck sftp upload error)"
-                    aria-label="NEXT: server_week_2-2-1 (cyber duck sftp upload error)"
+                    href="/2020/06/14/node-p-1/"
+                    data-tooltip="node_p_1"
+                    aria-label="NEXT: node_p_1"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
@@ -334,7 +336,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/21/week3-1/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -347,7 +349,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/21/week3-1/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -360,7 +362,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/21/week3-1/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -405,14 +407,11 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a
-                    class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/14/node-p-1/"
-                    data-tooltip="node_p_1"
-                    aria-label="PREVIOUS: node_p_1"
-                >
-                    
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                     </a>
@@ -422,9 +421,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/13/week2-2-1/"
-                    data-tooltip="server_week_2-2-1 (cyber duck sftp upload error)"
-                    aria-label="NEXT: server_week_2-2-1 (cyber duck sftp upload error)"
+                    href="/2020/06/14/node-p-1/"
+                    data-tooltip="node_p_1"
+                    aria-label="NEXT: node_p_1"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
@@ -449,7 +448,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/21/week3-1/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -462,7 +461,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/21/week3-1/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -475,7 +474,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/14/week2-4/"
+                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/21/week3-1/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -509,7 +508,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/14/week2-4/"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/21/week3-1/"
                         aria-label="Share on Facebook"
                     >
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
@@ -522,7 +521,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/14/week2-4/"
+                        href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/21/week3-1/"
                         aria-label="Share on Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
@@ -535,7 +534,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://plus.google.com/share?url=http://yoursite.com/2020/06/14/week2-4/"
+                        href="https://plus.google.com/share?url=http://yoursite.com/2020/06/21/week3-1/"
                         aria-label="Share on Google+"
                     >
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>

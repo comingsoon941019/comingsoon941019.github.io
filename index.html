@@ -202,6 +202,279 @@
                     
                         <a
                             class="link-unstyled"
+                            href="/2020/06/21/week3-1/"
+                            aria-label=": server_week_3-1 ( DataGrip, MySQL, Query )"
+                        >
+                            server_week_3-1 ( DataGrip, MySQL, Query )
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-06-21T01:14:57+09:00">
+	
+		    Jun 21, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/raising-project/">raising project</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>서버 3주차</p>
+<p>DataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다.</p>
+<h2 id="DB-설계"><a href="#DB-설계" class="headerlink" title="DB 설계"></a>DB 설계</h2><ol>
+<li>요구 사항 수집 분석</li>
+</ol>
+<ul>
+<li>먼저 실제 세계 에서 어떤 시스템이 필요한지 요구사항 정리</li>
+<li>요구사항에 대해 필요한 데이터 분석</li>
+</ul>
+<ol start="2">
+<li>설계방법</li>
+</ol>
+<ul>
+<li>E-R 모델과 릴레이션 변환 규칙을 이용한 설계</li>
+<li>정규화를 이용한 설계</li>
+</ul>
+<p>설계하고자 하는 기능을 문장으로 표현하는게 효과적이다. </p>
+<ul>
+<li>다음과 같이 DB 설계에 공부가 미흡한상태로 바로 설계 부터 했는데 쿼리문 작성시 구조가 잘못되어 불편함이 많았다.<br><img src="/img/post3-1_3.png" alt="windows-telnet-1"></li>
+</ul>
+<ul>
+<li>여기서 테이블은 정말 쉽게 구조화 하고 쿼리문까지 생성이 가능한 <a href="https://aquerytool.com/" target="_blank" rel="noopener">https://aquerytool.com/</a> 사이트를 이용한다.<br><img src="/img/post3-1_1.png" alt="windows-telnet-1"></li>
+</ul>
+<h2 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h2><ol>
+<li>Join</li>
+</ol>
+<ul>
+<li><p>다음 그림에서 join의 개념을 한눈에 볼 수 있다.<br><img src="/img/post3-1_2.png" alt="windows-telnet-1"></p>
+</li>
+<li><p>join의 사용 쿼리는 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT ~~</span><br><span class="line"></span><br><span class="line">FROM TABLE_A</span><br><span class="line"></span><br><span class="line">LEFT JOIN TABLE_B ON TABLE_A.KEY &#x3D; TABLE_B.KEY</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Left Join : A,B 두개의 테이블 중 A값의 전체와, A의 KEY 값과 B KEY 값이 같은 결과를 리턴</p>
+</li>
+<li><p>Inner Join : ID값이 서로 중복되는 값만 나타낸다.</p>
+</li>
+<li><p>Full Outer Join : MySQL은 FULL OUTER JOIN이 없다. 그래서 LEFT JOIN 과 RIGHT JOIN을 이용해 FULL OUTER JOIN을 사용</p>
+</li>
+</ul>
+<p>출처: <a href="https://yoo-hyeok.tistory.com/98" target="_blank" rel="noopener">https://yoo-hyeok.tistory.com/98</a> [유혁의 엉터리 개발]</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/06/21/week3-1/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/06/14/node-p-1/"
+                            aria-label=": node_p_1"
+                        >
+                            node_p_1
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-06-14T14:01:24+09:00">
+	
+		    Jun 14, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Node-js/">Node.js</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>모의 외주 대비 Node js 공부</p>
+<h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><ol>
+<li>개발 환경 설정</li>
+</ol>
+<ul>
+<li>LTS = long term soft 장기적인 업데이트와 지원이 가능 실제 서비스 환경에서 사용해야할 버젼</li>
+<li>Node —v, npm—v</li>
+<li>Vscode 에서 개발 하며 standard js패키지를 추가 설치하여 js  환경을 좀더 간편하게 개발할 수 있게 한다.</li>
+</ul>
+<ol start="2">
+<li>I/O 와 프로그래밍 패러다임</li>
+</ol>
+<ul>
+<li>먼져 Node 가 생겨난 이유는 기존에 web server(apache…)는 쓰레드와 같은 동시적인 프로그래밍이 불가능 했다.</li>
+<li>속도와 관련된 성능이 큰 비중을 차지하고 관련) 네트워크 트래픽을 통해서 라우팅(전달)이 중요 </li>
+<li>비동기 vs 동기  위와 같은 문제를 해결하기 위한 node은 2가지 모델 </li>
+<li>동기화는 프로세스를 진행중 끝날때 까지 다른 프로세스는 대기 하여 같은 시기에 (동기화) 하게 된다</li>
+<li>비동기는 서로 다른 프로세스는 다른 시점에서 처리 한다. 이를 위해 node js 는 이벤트 루프라는 방법을 사용, 정확히는 node js 는 내부에 v8이라는 js의 무언가를 사용</li>
+<li>Non-blocking vs blocking 는 프로세스 진행중 다른 프로세스를 block해서 성능 저하가 될수 있다. 따라 node 는 non-blocking 을 사용</li>
+<li>js는 이벤트 주도 방식의 언어 반대는 쓰레드풀 방식 </li>
+</ul>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ol>
+<li>JavaScript</li>
+</ol>
+<ul>
+<li>스크립트 언어</li>
+<li>인터프리터 언어 : 컴파일을 거치지 않고 바로 실행하는 인터프리터 언어</li>
+<li>자바랑은 이름만 비슷하며 전혀 다른 언어</li>
+<li>웹의 컨텐츠를 동적으로 변경할때 사용하는 언어</li>
+<li>Js 는 electron이라는 데스크탑 어플리케이션도 가능하다</li>
+</ul>
+<ol start="2">
+<li>Js Expression</li>
+</ol>
+<ul>
+<li>값을 만들어내는 간단한 코드를 표현식이라고 함 ex)1,”a”,true 등등</li>
+<li>alert();</li>
+</ul>
+<ol start="3">
+<li>Keywords</li>
+</ol>
+<ul>
+<li>Var // 변수를 선언하기 위한 예약어</li>
+</ul>
+<ol start="4">
+<li>Mothereif </li>
+</ol>
+<ul>
+<li>js에서 유효한 변수명을 확인해주는 사이트</li>
+</ul>
+<ol start="5">
+<li>주석</li>
+</ol>
+<ul>
+<li>//, /* */</li>
+</ul>
+<ol start="6">
+<li>변수</li>
+</ol>
+<ul>
+<li>Let a = value; // 변수를 선언</li>
+<li>Let? Var?</li>
+</ul>
+<ol start="7">
+<li>Var / let, const</li>
+</ol>
+<ul>
+<li>Es 5 = var</li>
+<li>Es 6 = let, const</li>
+</ul>
+<ol start="8">
+<li>Var 와 Hoisting</li>
+</ol>
+<ul>
+<li>함수를 밑에 선언하고 위에서 호출해서 사용이 가능하다,  변수도 가능하다 이를 Hoisting이라고 한다.</li>
+<li>Hoisting은 선언부가 밑에 있을때 선언부만 위로 끌어올려서 사용하는 식이다.</li>
+<li>하지만 ES6의 let 으로 선언 했을 경우에는 hoisting 현상이 발생하지 않는다. </li>
+</ul>
+<ol start="9">
+<li>자료형</li>
+</ol>
+<ul>
+<li>기본적으로 js의 자료형은 동적 타이핑이라고 한다. </li>
+<li>null, undefined : 비어있는 값을 null, 값을 지정해 주지 않았을 경우 undefined</li>
+<li>Int형과 같이 Number라는 변수가 있다.</li>
+<li>Template string  = <code>${name} : ss</code></li>
+<li>Symbol : 은 같은 값이어도 다르게 인식 고유한 값을 만들어 낼때 사용</li>
+</ul>
+<ol start="10">
+<li>Class</li>
+</ol>
+<ul>
+<li>es6부터 지원</li>
+<li>클래스는 hoisting이 발생하지 않는다.</li>
+<li>Constructor : class의 생성자</li>
+<li>getter와 setter를 지원한다.</li>
+<li>class child extends parents 상속</li>
+</ul>
+<ol start="11">
+<li>Promise</li>
+</ol>
+<ul>
+<li>Es6 부터 지원</li>
+<li>생성자를 통해서 promise 객체를 만들 수 있다.</li>
+<li>생성자의 인자로 excutor라는 인자를 사용</li>
+<li>Promise 관련 문법은 따로 포스팅</li>
+</ul>
+<ol start="12">
+<li>Arrow function </li>
+</ol>
+<ul>
+<li>이것또한 Es6부터 지원 </li>
+</ul>
+<ol start="13">
+<li>Asycnc, await</li>
+</ol>
+<ul>
+<li>ES 2017 부터 표준이 됐으며 비동기 처리 기법</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/06/14/node-p-1/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
                             href="/2020/06/14/week2-4/"
                             aria-label=": server_week_2-4 ( ssl, https )"
                         >
@@ -982,265 +1255,22 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a
-                            class="link-unstyled"
-                            href="/2020/06/02/week1-2/"
-                            aria-label=": server_week_1-2 (Apache Compile install)"
-                        >
-                            server_week_1-2 (Apache Compile install)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-06-02T13:05:15+09:00">
-	
-		    Jun 02, 2020
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/raising-project/">raising project</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>컴공선배 라이징 프로젝트 시작 서버 1주차</p>
-<p>Apache compile install</p>
-<h2 id="Vim-install-setting"><a href="#Vim-install-setting" class="headerlink" title="Vim install, setting"></a>Vim install, setting</h2><ul>
-<li><p>우분투를 사용할 때 vi 편집기를 사용할 때 vim설치를 해주지 않고 사용하면 매우매우 불편하다. 먼저 설치를 하고 시작하자.</p>
-</li>
-<li><p>apt 업데이트 이후 설치 </p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br><span class="line">$ sudo apt-get install vim</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>vim 설치가 끝이 아니라 설정까지 해줘야 vim사용이 가능하다.</p>
-</li>
-<li><p>vim설정 파일 진입</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.vimrc</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> number                          <span class="string">" line 표시</span></span><br><span class="line"><span class="string">set ai                              "</span> auto indent</span><br><span class="line"><span class="built_in">set</span> si                              <span class="string">" smart indent</span></span><br><span class="line"><span class="string">set cindent                         "</span> c style indent</span><br><span class="line"><span class="built_in">set</span> shiftwidth=4                    <span class="string">" 자동 공백 채움 시 4칸</span></span><br><span class="line"><span class="string">set tabstop=4                       "</span> tab을 4칸 공백으로</span><br><span class="line"><span class="built_in">set</span> ignorecase                      <span class="string">" 검색 시 대소문자 무시</span></span><br><span class="line"><span class="string">set hlsearch                        "</span> 검색 시 하이라이트</span><br><span class="line"><span class="built_in">set</span> nocompatible                    <span class="string">" 방향키로 이동 가능</span></span><br><span class="line"><span class="string">set fencs=ucs-bom,utf-8,euc-kr      "</span> 한글 파일은 euc-kr, 유니코드는 유니코드</span><br><span class="line"><span class="built_in">set</span> bs=indent,eol,start             <span class="string">" backspace 사용가능</span></span><br><span class="line"><span class="string">set ruler                           "</span> 상태 표시줄에 커서 위치 표시</span><br><span class="line"><span class="built_in">set</span> title                           <span class="string">" 제목 표시</span></span><br><span class="line"><span class="string">set showmatch                       "</span> 다른 코딩 프로그램처럼 매칭되는 괄호 보여줌</span><br><span class="line"><span class="built_in">set</span> wmnu                            <span class="string">" tab 을 눌렀을 때 자동완성 가능한 목록</span></span><br><span class="line"><span class="string">syntax on                           "</span> 문법 하이라이트 on</span><br><span class="line">filetype indent on                  <span class="string">" 파일 종류에 따른 구문 강조</span></span><br><span class="line"><span class="string">set mouse=a                         "</span> 커서 이동을 마우스로 가능하도록</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Apache-2-4-43-compile-install"><a href="#Apache-2-4-43-compile-install" class="headerlink" title="Apache 2.4.43 compile install"></a>Apache 2.4.43 compile install</h2><ul>
-<li><p>본격적으로 apache 수동 설치시작한.</p>
-</li>
-<li><p>/usr/local/ 경로에 설치하는 것이 바람직</p>
-</li>
-<li><p>/usr/local/src 소스파일 저장</p>
-</li>
-<li><p>설치 하는 순서는 보통 wget-&gt; xvfz tar -&gt; ./configure -&gt; make -&gt; make install</p>
-</li>
-<li><p>소스컴파일에 apr, apr-util, pcre 와 같은 의존성 패키지는 apt로 설치 </p>
-</li>
-<li><p><strong>apr</strong> : 아파치 HTTP 서버 2.x.의 핵심이며 휴대용 라이브러리, 이런 APR은 고급 IO 기능에 대한 접근을 포함하여 OS 수준의 기능, 기본프로세스 처리 등 많은 용도로 사용된다.</p>
-</li>
-<li><p><strong>PCRE</strong> : 펄 호환 정규 표현식으로 정규식 패턴 일치를 구현하는 함수의 집합 아파치 2.4버전 설치시 필요한 패키지</p>
-</li>
-</ul>
-<ol>
-<li>소스를 저장할 디렉토리 생성 </li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> usr</span><br><span class="line">$ <span class="built_in">cd</span> <span class="built_in">local</span></span><br><span class="line">$ sudo mkdir apache</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>다음 명령어를 수행하는데 어려움이 있다면 리눅스의 디렉토리 구조를 한번 보고 오는게 좋다. <a href="https://webdir.tistory.com/101" target="_blank" rel="noopener">https://webdir.tistory.com/101</a></li>
-</ul>
-<ol start="2">
-<li>apr,apr-util 다운</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://mirror.navercorp.com/apache//apr/apr-1.7.0.tar.gz</span><br><span class="line">$ wget http://mirror.navercorp.com/apache//apr/apr-util-1.6.1.tar.gz</span><br><span class="line">$ tar xvfz apr-1.7.0.tar.gz</span><br><span class="line">$ tar xvfz apr-util-1.6.1.tar.gz</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p><strong>wget</strong> : web get 의 약어로 웹상의 파일을 다운받을 때 사용</p>
-</li>
-<li><p><strong>tar xvfz</strong> : tar.gz 형식으로 압축되어있는 파일을 압축 해제하는 명령어</p>
-</li>
-</ul>
-<ol start="3">
-<li><p>apr 설치</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> usr/<span class="built_in">local</span>/apr-1.7.0</span><br><span class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apr</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>apr-util 설치 </p>
-</li>
-</ol>
-<ul>
-<li>여기서 많이 삽질했는데 apr-util 설치전 필수적으로 libexpat1-dev 라는 패키지를 먼저 설치 해줘야 한다. 이 패키지가 설치되지 않은 상태로 설치되면 제대로 설치가 되지 않아 나중에 apache 설치시 오류가 나서 재설치하는 번거러움이 생긴다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install libexpat1-dev</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>다음으로 apr-uilt 설치</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> usr/<span class="built_in">local</span>/apr-util-1.6.1</span><br><span class="line">$ ./configure --with-apr=/usr/<span class="built_in">local</span>/apr --prefix=/usr/<span class="built_in">local</span>/apr-util </span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li><p>PCRE 설치</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> usr/<span class="built_in">local</span></span><br><span class="line">$ wget ftp://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz</span><br><span class="line">$ tar xvfz pcre-8.43.gar.gz</span><br><span class="line">$ <span class="built_in">cd</span> usr/<span class="built_in">local</span>/pcre-8.43</span><br><span class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/pcre</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>apache 2.4.43 설치</p>
-</li>
-</ol>
-<ul>
-<li><p>apache 공식 사이트 소스 설치 : <a href="http://httpd.apache.org/docs/current/install.html" target="_blank" rel="noopener">http://httpd.apache.org/docs/current/install.html</a></p>
-</li>
-<li><p>apache 최신 버젼 링크 : <a href="http://httpd.apache.org/download.cgi" target="_blank" rel="noopener">http://httpd.apache.org/download.cgi</a> </p>
-</li>
-<li><p>다운로드시 최신 버젼을 확인하여 설치한다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">$ wget http://apache.tt.co.kr//httpd/httpd-2.4.43.tar.gz</span><br><span class="line">$ tar xvfz httpd-2.4.43.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>다운로드후 configure, make, make install 순서로 설치</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> httpd-2.4.43</span><br><span class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/apache2.4 \</span><br><span class="line">--<span class="built_in">enable</span>-module=so --<span class="built_in">enable</span>-rewrite --<span class="built_in">enable</span>-so \</span><br><span class="line">--with-apr=/usr/<span class="built_in">local</span>/apr \</span><br><span class="line">--with-apr-util=/usr/<span class="built_in">local</span>/apr-util \</span><br><span class="line">--with-pcre=/usr/<span class="built_in">local</span>/pcre \</span><br><span class="line">--<span class="built_in">enable</span>-mods-shared=all</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure></li>
-<li><p>configure 스크립트를 사용해 아파치 소스트리 구성, 자세한 script 구성은 <a href="http://httpd.apache.org/docs/current/en/programs/configure.html" target="_blank" rel="noopener">http://httpd.apache.org/docs/current/en/programs/configure.html</a></p>
-</li>
-<li><p>설치가 완료 되었으면 실행을 해본다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /usr/<span class="built_in">local</span>/apache2.4/bin/apachectl -k start</span><br><span class="line">$ ps -ef|grep httpd|grep -v grep</span><br><span class="line">$ sudo netstat -anp|grep httpd</span><br><span class="line">$ sudo curl http://127.0.01</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>다음과 같은 오류가 발생하였는데 일단 동작은 하지만 찾아봐야할거 같다.. AH00558: httpd: Could not reliably determine the server’s fully qualified domain name, using 127.0.1.1. Set the ‘ServerName’ directive globally to suppress this message</p>
-</li>
-<li><p>netstat와 curl 이 동작하지 않는다면 설치</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install net-tools</span><br><span class="line">$ apt-get install curl</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol start="7">
-<li>httpd 서비스 등록 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cp /usr/<span class="built_in">local</span>/apache2.4/bin/apachectl /etc/init.d/httpd </span><br><span class="line">$ update-rc.d httpd defaults</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a
-                                href="/2020/06/02/week1-2/#post-footer"
-                                class="postShorten-excerpt_link link"
-                                aria-label=""
-                            >
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a
-                            class="link-unstyled"
-                            href="/2020/06/01/week1-1/"
-                            aria-label=": server_week_1-1 (ubuntu install)"
-                        >
-                            server_week_1-1 (ubuntu install)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-06-01T13:00:37+09:00">
-	
-		    Jun 01, 2020
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/raising-project/">raising project</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>컴공선배 라이징 프로젝트 시작 서버 1주차</p>
-<p>가상환경에 우분투 설치 </p>
-<h2 id="Virtual-Box"><a href="#Virtual-Box" class="headerlink" title="Virtual Box"></a>Virtual Box</h2><ul>
-<li><p>mac을 사용하고 있지만 ubuntu 공부를 위해 가상환경에서 apm 설치를 하고자 한다.</p>
-</li>
-<li><p>가상환경은 무료로 사용가능한 Virtual Box를 사용한다.</p>
-</li>
-</ul>
-<p><img src="/img/post1_virtualbox.png" alt="windows-telnet-1"></p>
-<h3 id="Ubuntu-20-04-LTS"><a href="#Ubuntu-20-04-LTS" class="headerlink" title="Ubuntu 20.04 LTS"></a>Ubuntu 20.04 LTS</h3><ul>
-<li><p>우분투 (ubuntu)는 데비안 GNU/리눅스 기반으로 개발된 배포판 </p>
-</li>
-<li><p>LTS(장기 지원판)이며 2년에 한번씩 배포됨 </p>
-</li>
-<li><p>해당 사이트에서 이미지 파일을 받아 가상머신에 설치 할 예정 다운받는 속도는 매우 느리다.</p>
-</li>
-</ul>
-<p><img src="/img/post1_ubuntu20.04.png" alt="windows-telnet-1"></p>
-<h3 id="virtual-box-에-ubuntu-설치"><a href="#virtual-box-에-ubuntu-설치" class="headerlink" title="virtual box 에 ubuntu 설치"></a>virtual box 에 ubuntu 설치</h3><ul>
-<li><p>virtual box에 새로만들기 클릭후 가상머신의 이름과 버젼, 종류를 선택</p>
-</li>
-<li><p>이후 메모리 크기를 설정 하는데 공홈에서 4GB를 권장하지만 여유가 된다면 이상을 추천한다.</p>
-</li>
-<li><p>하드 디스크 지정 후 VDI 선택</p>
-</li>
-<li><p>하드 디스크를 동적 할당 또는 고정크기로 정하는데 호스트 컴퓨터 하드디스크에 여유가 없음 동적 할당을 추천</p>
-</li>
-<li><p>다음으로 하드의 크기를 정할때가 문제 생각 이상으로 apm 설치가 용량이 많이 들어 최소 40기가 정도로 설정하는게 번거롭게 재설치를 하지 않아도 될듯하다.</p>
-</li>
-<li><p>다음으로 아까 받았던 ubuntu img를 올려 설치를 시작한다.</p>
-</li>
-</ul>
-<p><img src="/img/post1_virtual_ubuntu.png" alt="windows-telnet-1"></p>
-<ul>
-<li>이제 설치를 하다 보면 우분투 해상도 문제로 버튼을 클릭하지 못하는 문제가 발생하는데 이때 우분투를 종료후 virtualbox의 디스플레이 설정에서 그래픽컨트롤러를 VBoxSVGA로 변경</li>
-</ul>
-<p><img src="/img/post1_virtual_s_g.png" alt="windows-telnet-1"></p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a
-                                href="/2020/06/01/week1-1/#post-footer"
-                                class="postShorten-excerpt_link link"
-                                aria-label=""
-                            >
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
         
-        <li class="pagination-number">page 1 of 1</li>
+          <li class="pagination-next">
+            <a
+                class="btn btn--default btn--small"
+                href="/page/2/"
+                aria-label="OLDER POSTS"
+            >
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+        <li class="pagination-number">page 1 of 2</li>
     </ul>
 </div>
 
