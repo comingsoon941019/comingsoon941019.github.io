@@ -6,28 +6,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Coming soon!">
-    <title>server_week_3-1 ( DataGrip, MySQL, Query ) - Coming soon!</title>
+    <title>server_week_3-2 ( MySQL 계층형 쿼리 ) - Coming soon!</title>
     <meta name="author" content="Hyeongsun Kim">
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro서버 3주차\nDataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다.\nDB 설계\n요구 사항 수집 분석\n\n\n먼저 실제 세계 에서 어떤 시스템이 필요한지 요구사항 정리\n요구사항에 대해 필요한 데이터 분석\n\n\n설계방법\n\n\nE-R 모델과 릴레이션 변환 규칙을 이용한 설계\n정규화를 이용한 설계\n\n설계하고자 하는 기능을 문장으로 표현하는게 효과적이다. \n\n다음과 같이 DB 설계에 공부가 미흡한상태로 바로 설계 부터 했는데 쿼리문 작성시 구조가 잘못되어 불편함이 많았다.\n\n\n여기서 테이블은 정말 쉽게 구조화 하고 쿼리문까지 생성이 가능한 https://aquerytool.com/ 사이트를 이용한다.\n\nQuery\nJoin\n\n\n다음 그림에서 join의 개념을 한눈에 볼 수 있다.\n\njoin의 사용 쿼리는 \n12345SELECT ~~FROM TABLE_ALEFT JOIN TABLE_B ON TABLE_A.KEY &#x3D; TABLE_B.KEY\n\nLeft Join : A,B 두개의 테이블 중 A값의 전체와, A의 KEY 값과 B KEY 값이 같은 결과를 리턴\n\nInner Join : ID값이 서로 중복되는 값만 나타낸다.\n\nFull Outer Join : MySQL은 FULL OUTER JOIN이 없다. 그래서 LEFT JOIN 과 RIGHT JOIN을 이용해 FULL OUTER JOIN을 사용\n\n\n출처: https://yoo-hyeok.tistory.com/98 [유혁의 엉터리 개발]\n","dateCreated":"2020-06-21T01:14:57+09:00","dateModified":"2020-06-21T02:05:29+09:00","datePublished":"2020-06-21T01:14:57+09:00","description":"","headline":"server_week_3-1 ( DataGrip, MySQL, Query )","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/21/week3-1/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/21/week3-1/","keywords":"Today what I Learn"}</script>
-    <meta name="description" content="Intro서버 3주차 DataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다. DB 설계 요구 사항 수집 분석   먼저 실제 세계 에서 어떤 시스템이 필요한지 요구사항 정리 요구사항에 대해 필요한 데이터 분석   설계방법   E-R 모델과 릴레이션 변환 규칙을 이용한 설계 정규화를 이용한 설계  설계하고자 하는 기능을 문장으로 표현하는게 효">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png"},"articleBody":"Intro서버 3주차\nDataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다.\n계층형 DB 구조\n온라인 스토어 DB \n\n\n온라인 스토어를 설계할 때 계층형으로 구현함이 합리적이 였다는 걸 쿼리문 작성으로 실감했다.\n\n\n","dateCreated":"2020-06-21T02:07:54+09:00","dateModified":"2020-06-21T02:18:36+09:00","datePublished":"2020-06-21T02:07:54+09:00","description":"","headline":"server_week_3-2 ( MySQL 계층형 쿼리 )","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/06/21/week3-2/"},"publisher":{"@type":"Organization","name":"Hyeongsun Kim","sameAs":["https://github.com/"],"image":"comingsoon_pic.png","logo":{"@type":"ImageObject","url":"comingsoon_pic.png"}},"url":"http://yoursite.com/2020/06/21/week3-2/","keywords":"Today what I Learn"}</script>
+    <meta name="description" content="Intro서버 3주차 DataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다. 계층형 DB 구조 온라인 스토어 DB    온라인 스토어를 설계할 때 계층형으로 구현함이 합리적이 였다는 걸 쿼리문 작성으로 실감했다.">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="server_week_3-1 ( DataGrip, MySQL, Query )">
-<meta property="og:url" content="http://yoursite.com/2020/06/21/week3-1/index.html">
+<meta property="og:title" content="server_week_3-2 ( MySQL 계층형 쿼리 )">
+<meta property="og:url" content="http://yoursite.com/2020/06/21/week3-2/index.html">
 <meta property="og:site_name" content="Coming soon!">
-<meta property="og:description" content="Intro서버 3주차 DataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다. DB 설계 요구 사항 수집 분석   먼저 실제 세계 에서 어떤 시스템이 필요한지 요구사항 정리 요구사항에 대해 필요한 데이터 분석   설계방법   E-R 모델과 릴레이션 변환 규칙을 이용한 설계 정규화를 이용한 설계  설계하고자 하는 기능을 문장으로 표현하는게 효">
+<meta property="og:description" content="Intro서버 3주차 DataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다. 계층형 DB 구조 온라인 스토어 DB    온라인 스토어를 설계할 때 계층형으로 구현함이 합리적이 였다는 걸 쿼리문 작성으로 실감했다.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/img/post3-1_3.png">
-<meta property="og:image" content="http://yoursite.com/img/post3-1_1.png">
-<meta property="og:image" content="http://yoursite.com/img/post3-1_2.png">
-<meta property="article:published_time" content="2020-06-20T16:14:57.000Z">
-<meta property="article:modified_time" content="2020-06-20T17:05:29.281Z">
+<meta property="og:image" content="http://yoursite.com/img/post3-2_1.png">
+<meta property="article:published_time" content="2020-06-20T17:07:54.000Z">
+<meta property="article:modified_time" content="2020-06-20T17:18:36.018Z">
 <meta property="article:author" content="Hyeongsun Kim">
 <meta property="article:tag" content="Today what I Learn">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/img/post3-1_3.png">
+<meta name="twitter:image" content="http://yoursite.com/img/post3-2_1.png">
     
     
         
@@ -209,12 +207,12 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            server_week_3-1 ( DataGrip, MySQL, Query )
+            server_week_3-2 ( MySQL 계층형 쿼리 )
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2020-06-21T01:14:57+09:00">
+    <time datetime="2020-06-21T02:07:54+09:00">
 	
 		    Jun 21, 2020
     	
@@ -236,44 +234,13 @@
         <div class="main-content-wrap">
             <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>서버 3주차</p>
 <p>DataGrip과 MySQL로 온라인 커머스 DB를 설계해 보고자 한다.</p>
-<h2 id="DB-설계"><a href="#DB-설계" class="headerlink" title="DB 설계"></a>DB 설계</h2><ol>
-<li>요구 사항 수집 분석</li>
+<h2 id="계층형-DB-구조"><a href="#계층형-DB-구조" class="headerlink" title="계층형 DB 구조"></a>계층형 DB 구조</h2><ol>
+<li>온라인 스토어 DB </li>
 </ol>
 <ul>
-<li>먼저 실제 세계 에서 어떤 시스템이 필요한지 요구사항 정리</li>
-<li>요구사항에 대해 필요한 데이터 분석</li>
+<li>온라인 스토어를 설계할 때 계층형으로 구현함이 합리적이 였다는 걸 쿼리문 작성으로 실감했다.</li>
 </ul>
-<ol start="2">
-<li>설계방법</li>
-</ol>
-<ul>
-<li>E-R 모델과 릴레이션 변환 규칙을 이용한 설계</li>
-<li>정규화를 이용한 설계</li>
-</ul>
-<p>설계하고자 하는 기능을 문장으로 표현하는게 효과적이다. </p>
-<ul>
-<li>다음과 같이 DB 설계에 공부가 미흡한상태로 바로 설계 부터 했는데 쿼리문 작성시 구조가 잘못되어 불편함이 많았다.<br><img src="/img/post3-1_3.png" alt="windows-telnet-1"></li>
-</ul>
-<ul>
-<li>여기서 테이블은 정말 쉽게 구조화 하고 쿼리문까지 생성이 가능한 <a href="https://aquerytool.com/" target="_blank" rel="noopener">https://aquerytool.com/</a> 사이트를 이용한다.<br><img src="/img/post3-1_1.png" alt="windows-telnet-1"></li>
-</ul>
-<h2 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h2><ol>
-<li>Join</li>
-</ol>
-<ul>
-<li><p>다음 그림에서 join의 개념을 한눈에 볼 수 있다.<br><img src="/img/post3-1_2.png" alt="windows-telnet-1"></p>
-</li>
-<li><p>join의 사용 쿼리는 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT ~~</span><br><span class="line"></span><br><span class="line">FROM TABLE_A</span><br><span class="line"></span><br><span class="line">LEFT JOIN TABLE_B ON TABLE_A.KEY &#x3D; TABLE_B.KEY</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Left Join : A,B 두개의 테이블 중 A값의 전체와, A의 KEY 값과 B KEY 값이 같은 결과를 리턴</p>
-</li>
-<li><p>Inner Join : ID값이 서로 중복되는 값만 나타낸다.</p>
-</li>
-<li><p>Full Outer Join : MySQL은 FULL OUTER JOIN이 없다. 그래서 LEFT JOIN 과 RIGHT JOIN을 이용해 FULL OUTER JOIN을 사용</p>
-</li>
-</ul>
-<p>출처: <a href="https://yoo-hyeok.tistory.com/98" target="_blank" rel="noopener">https://yoo-hyeok.tistory.com/98</a> [유혁의 엉터리 개발]</p>
+<p><img src="/img/post3-2_1.png" alt="windows-telnet-1"></p>
 
             
 
@@ -298,9 +265,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/21/week3-2/"
-                    data-tooltip="server_week_3-2 ( MySQL 계층형 쿼리 )"
-                    aria-label="PREVIOUS: server_week_3-2 ( MySQL 계층형 쿼리 )"
+                    href="/2020/07/08/week5-1/"
+                    data-tooltip="server_week_5-1 ( Node js Promis )"
+                    aria-label="PREVIOUS: server_week_5-1 ( Node js Promis )"
                 >
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -312,9 +279,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/14/node-p-1/"
-                    data-tooltip="node_p_1"
-                    aria-label="NEXT: node_p_1"
+                    href="/2020/06/21/week3-1/"
+                    data-tooltip="server_week_3-1 ( DataGrip, MySQL, Query )"
+                    aria-label="NEXT: server_week_3-1 ( DataGrip, MySQL, Query )"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
@@ -339,7 +306,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/21/week3-1/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/21/week3-2/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -352,7 +319,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/21/week3-1/"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/21/week3-2/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -365,7 +332,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/21/week3-1/"
+                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/21/week3-2/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -413,9 +380,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/21/week3-2/"
-                    data-tooltip="server_week_3-2 ( MySQL 계층형 쿼리 )"
-                    aria-label="PREVIOUS: server_week_3-2 ( MySQL 계층형 쿼리 )"
+                    href="/2020/07/08/week5-1/"
+                    data-tooltip="server_week_5-1 ( Node js Promis )"
+                    aria-label="PREVIOUS: server_week_5-1 ( Node js Promis )"
                 >
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -427,9 +394,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2020/06/14/node-p-1/"
-                    data-tooltip="node_p_1"
-                    aria-label="NEXT: node_p_1"
+                    href="/2020/06/21/week3-1/"
+                    data-tooltip="server_week_3-1 ( DataGrip, MySQL, Query )"
+                    aria-label="NEXT: server_week_3-1 ( DataGrip, MySQL, Query )"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
@@ -454,7 +421,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/21/week3-1/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/21/week3-2/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -467,7 +434,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/21/week3-1/"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/21/week3-2/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -480,7 +447,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/21/week3-1/"
+                    target="new" href="https://plus.google.com/share?url=http://yoursite.com/2020/06/21/week3-2/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -514,7 +481,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/21/week3-1/"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/06/21/week3-2/"
                         aria-label="Share on Facebook"
                     >
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
@@ -527,7 +494,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/21/week3-1/"
+                        href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/06/21/week3-2/"
                         aria-label="Share on Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
@@ -540,7 +507,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://plus.google.com/share?url=http://yoursite.com/2020/06/21/week3-1/"
+                        href="https://plus.google.com/share?url=http://yoursite.com/2020/06/21/week3-2/"
                         aria-label="Share on Google+"
                     >
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
